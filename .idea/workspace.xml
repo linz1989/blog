@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="84abe19f-7002-49a1-b89e-35dd709c5905" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/hugo-pacman-theme" afterPath="$PROJECT_DIR$/themes/hugo-pacman-theme" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="84abe19f-7002-49a1-b89e-35dd709c5905" name="Default" comment="" />
     <ignored path="myblog.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -139,15 +136,15 @@
       <updated>1465091689733</updated>
       <workItem from="1465091691565" duration="12229000" />
       <workItem from="1465118609152" duration="14179000" />
-      <workItem from="1465135225850" duration="34000" />
+      <workItem from="1465135225850" duration="397000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26442000" />
+    <option name="totallyTimeSpent" value="26805000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="24" width="1366" height="693" extended-state="6" />
+    <frame x="0" y="24" width="1366" height="693" extended-state="7" />
     <editor active="false" />
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2797619" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
