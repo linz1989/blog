@@ -1,0 +1,7 @@
+<p class="copyright">Powered by <a href="http://gohugo.io" target="_blank" title="hugo">hugo</a> and <a href="https://github.com/coderzh/hugo-pacman-theme" target="_blank" title="hugo-pacman-theme">hugo-pacman-theme</a> © {{ .Now.Year }}
+  {{ if .Site.Author.Name }}
+  <a href="{{ .Site.BaseURL }}" target="_blank" title="{{ .Site.Author.Name }}">{{ .Site.Author.Name }}</a>
+  {{ else }}
+  <a href="{{ .Site.BaseURL }}" title="{{ .Site.Title }}">{{ .Site.Title }}</a>
+  {{ end }}
+</p>
