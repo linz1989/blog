@@ -21,7 +21,7 @@ RSSUri = "feed.xml"
   GitHub = "linz1989"
   Facebook = ""
   LinkIn = ""
-  Imglogo = "img/logo.png"
+  Imglogo = "img/header.jpg"
   AuthorImg = "img/author.jpg"
   DateFormat = "2006年01月02日"
   MonthFormat = "2006年01月"
@@ -55,22 +55,17 @@ RSSUri = "feed.xml"
     Weight = 1
 
     [[Menu.Main]]
-     Name = "读书&音乐"
-     URL = "/reading"
-     Weight = 2
-
-    [[Menu.Main]]
-      Name = "工作&生活"
+      Name = "生活&读书"
       URL = "/life"
-      Weight = 3
+      Weight = 2
 
     [[Menu.Main]]
-      Name = "编程"
+      Name = "编程&工作"
       URL = "/programming"
-      Weight = 4
+      Weight = 3
 
   [[Menu.Main]]
      Name = "首页"
      URL = "/"
-     Weight = 5
+     Weight = 4
 

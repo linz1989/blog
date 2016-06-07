@@ -53,15 +53,6 @@ $(document).ready(function(){
       }
     }
   });
-  $('form.search').on('submit', function (event) {
-    if (false === done) {
-      event.preventDefault();
-      var orgVal = $(this).find('#search').val();
-      $(this).find('#search').val('site:{{ .Site.BaseURL }} ' + orgVal);
-      done = true;
-      $(this).submit();
-    }
-  });
 });
 </script>
 {{ if eq .Section "post" }}
