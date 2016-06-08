@@ -36,16 +36,15 @@
     <h1 class="site-name">linz blog</h1>
     <h2 class="blog-motto">生命可以随心所欲，但不能随波逐流</h2>
   </div>
-  <div class="navbar"><a class="navbutton navmobile" href="#" title="menu"></a></div>
 </div>
 <nav class="animated">
   <ul>
     
-    <li><a href="/about/">About Me</a></li>
+    <li><a href="/about">About Me</a></li>
     
-    <li><a href="/life/">生活&amp;读书</a></li>
+    <li><a href="/life">生活&amp;读书</a></li>
     
-    <li><a href="/programming/">编程&amp;工作</a></li>
+    <li><a href="/programming">编程&amp;工作</a></li>
     
     <li><a href="/">首页</a></li>
     
@@ -159,9 +158,6 @@
 <script type="text/javascript">
 done = false;
 $(document).ready(function(){
-  $('.navbar').click(function(){
-    $('header nav').toggleClass('shownav');
-  });
   var myWidth = 0;
   function getSize(){
     if( typeof( window.innerWidth ) == 'number' ) {
