@@ -49,38 +49,30 @@ input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit
 }@keyframes fadeInDown{0%{opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter:alpha(opacity=0);-webkit-transform:translateY(-20px);-moz-transform:translateY(-20px);-o-transform:translateY(-20px);-ms-transform:translateY(-20px);transform:translateY(-20px)}
 100%{opacity:1;-ms-filter:none;filter:none;-webkit-transform:translateY(0);-moz-transform:translateY(0);-o-transform:translateY(0);-ms-transform:translateY(0);transform:translateY(0)}
 }body >header{width:100%;-webkit-box-shadow:2px 4px 5px rgba(3,3,3,0.2);box-shadow:2px 4px 5px rgba(3,3,3,0.2);background:url("../img/header-bg.jpg") repeat;color:#fff;padding:1em 0 0;}
-@media only screen and (min-width: 1024px){body >header{padding:1.4em 0 0em}
+@media only screen and (min-width: 1024px){body >header{padding:1.3em 0 0em}
 }body >header >div{width:95%;margin:0 auto;position:relative;overflow:hidden;}
 @media only screen and (min-width: 1024px){body >header >div{width:93%} }
 @media only screen and (min-width: 1440px){body >header >div{width:1353px} }
+
 body >header a{display:block;color:#fff}
-#imglogo{float:left;width:4em;height:7.7075em;}
-@media only screen and (min-width: 768px){#imglogo{width:5em}
-}@media only screen and (min-width: 1024px){#imglogo{width:5.5em}
-}#imglogo img{width:4em;}
-@media only screen and (min-width: 768px){#imglogo img{width:5em}
-}@media only screen and (min-width: 1024px){#imglogo img{width:5.5em}
-}#textlogo{float:left;width:75%;margin-left:1.2em;}
-#textlogo h1.site-name{width:86%;font-size:200%;line-height:1.5;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
-@media only screen and (min-width: 768px){#textlogo h1.site-name{font-size:240%}
-}@media only screen and (min-width: 1024px){#textlogo h1.site-name{font-size:300%}
-}#textlogo h2.blog-motto{font-size:.7em;font-weight:normal;font-style: italic;letter-spacing: 1px;}
-@media only screen and (min-width: 568px){#textlogo h2.blog-motto{font-size:100%} .navbar{display:none}
-}@media only screen and (min-width: 1024px){#textlogo h2.blog-motto{font-size:110%}
-}.navbar{position:absolute;width:2em;right:0;top:1em;padding:.5em;}
-@media only screen and (min-width: 1024px){
-}.navbutton::before{font-family:"FontAwesome";-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;content:"\f0c9"}
+#imglogo{float:left;width:5.5em;height:5.5em;margin-top:1em;}
+#imglogo img{display:block;width:100%;height:100%;border-radius: 50%;border:2px solid #ddd;box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;}
+
+#textlogo{float:left;width:75%;margin-left:1.2em;}
+#textlogo h1.site-name{width:86%;font-size:300%;line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+#textlogo h2.blog-motto{font-size:110%;font-weight:normal;font-style: italic;letter-spacing: 1px;color:#ddd;}
+
+.navbar{position:absolute;width:2em;right:0;top:1em;padding:.5em;}
+.navbutton::before{font-family:"FontAwesome";-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;content:"\f0c9"}
 .navmobile::before{padding-left:1em}
 header nav{width:100%;font-size:112.5%;overflow:hidden;max-height:.01em;background-color: rgba(0,0,0,0.06);-webkit-transition:max-height 1s ease-out;-moz-transition:max-height 1s ease-out;-o-transition:max-height 1s ease-out;-ms-transition:max-height 1s ease-out;transition:max-height 1s ease-out;}
 header nav::after{ content:"";display:block;clear:both;}
 header nav.fixed{ position: fixed; top:0; left:0;margin-top:0;background-color: rgba(51,51,153,0.8);z-index: 10; }
-@media only screen and (min-width: 568px){header nav{width:100%;margin-top:-1em;max-height:none;}
-}@media only screen and (min-width: 568px){header nav ul{width:93%;margin-left:auto;margin-right:auto;} }
+@media only screen and (min-width: 568px){header nav{width:100%;margin-top:-1em;max-height:none;} header nav ul{width:93%;margin-left:auto;margin-right:auto;} header nav ul li{float:right} }
 @media only screen and (min-width: 1440px){header nav ul{width:1353px;}}
-@media only screen and (min-width: 568px){header nav ul li{float:right}
-}header nav ul li a{padding:.2em 0 .2em 1em; color:#ddd;font-size:96%;font-weight: bold;}
-@media only screen and (min-width: 1024px){header nav ul li a{padding:.7em 1.2em}
-}header nav ul li a:hover{background:#003366;color:#fff}
+header nav ul li a{padding:.7em 1.2em; color:#ddd;font-size:96%;font-weight: bold;}
+header nav ul li a:hover{background:#003366;color:#fff}
+
 .shownav{max-height:40em;visibility: visible}
 .search{display:none;position:absolute;top:0;right:0.5em;padding:.1em 0 0 1em;}
 .search input{line-height:2.2;font-size:15px;border:1px solid #ccc;border-radius:30px;color:#eee;font-style: italic; background:transparent;width:80%;padding-left:1em;padding-right:1em;}
@@ -96,10 +88,13 @@ header nav.fixed{ position: fixed; top:0; left:0;margin-top:0;background-color: 
 }@media only screen and (min-width: 1440px){#container{width:1353px;}
 }#main{margin:1em 0 0;line-height:1.8;}
 @media only screen and (min-width: 1024px){#main{margin:2em 0 0;width:75%;float:left;-webkit-transition:margin 0.5s ease-out;-moz-transition:margin 0.5s ease-out;-o-transition:margin 0.5s ease-out;-ms-transition:margin 0.5s ease-out;transition:margin 0.5s ease-out}
-}#main section.post{background:#fafafa;margin-bottom:.125em;}
-#main section.post a{display:block;border-left:.5em solid #ccc;-webkit-transition:border-left 0.45s;-moz-transition:border-left 0.45s;-o-transition:border-left 0.45s;-ms-transition:border-left 0.45s;transition:border-left 0.45s;padding:.5em;}
-@media only screen and (min-width: 768px){#main section.post a{padding:1em}
-}#main section.post a:hover{border-left:.5em solid #003366}
+}
+#main section.post{ background:#fafafa;margin-bottom:.125em; }
+#main section.post a{display:block;position:relative;border-left:.5em solid #ccc;-webkit-transition:border-left 0.45s;-moz-transition:border-left 0.45s;-o-transition:border-left 0.45s;-ms-transition:border-left 0.45s;transition:border-left 0.45s;padding:.5em;}
+@media only screen and (min-width: 768px){#main section.post a{padding:1em} }
+#main section.post a::after{content:"";display:block;position:absolute;height:2px;left:50%;right:50%;bottom:0;background-color: #003366;-webkit-transition:all 0.5s ease-out;-moz-transition:all 0.5s ease-out;-o-transition:all 0.5s ease-out;-ms-transition:all 0.5s ease-out;transition:all 0.5s ease-out}
+#main section.post a:hover{border-left:.5em solid #003366}
+#main section.post a:hover::after{left:0;right:0;}
 #main section.post a h1{color:#2ca6cb;line-height:2}
 #main section.post a p{color:#817c7c}
 #main section.post a time{color:#817c7c;display:block;margin:.5em 0;font-size:.9em}
@@ -254,15 +249,7 @@ footer.article-footer{background:#fafafa;padding:0 4%;margin:0;border-top:1px so
 #toc.toc-aside a{-webkit-transition:color 1s ease-out;-moz-transition:color 1s ease-out;-o-transition:color 1s ease-out;-ms-transition:color 1s ease-out;transition:color 1s ease-out;}
 #toc.toc-aside a:hover{color:#ea6753;-webkit-transition:color 0.3s ease-out;-moz-transition:color 0.3s ease-out;-o-transition:color 0.3s ease-out;-ms-transition:color 0.3s ease-out;transition:color 0.3s ease-out}
 .active{color:#ea6753 !important}
-.openaside{display:none;position:fixed;right:7.5%;top:260px;}
-.openaside a{display:block;color:#fff;-webkit-border-radius:5px;border-radius:5px;background:#006699;padding:.2em .55em;}
-.openaside a::before{font-family:"FontAwesome";-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;content:"\f0c9"}
-.closeaside{display:none;}
-.closeaside a{color:#2ca6cb;}
-.closeaside a:hover{color:#006699}
-.closeaside a::before{font-family:"FontAwesome";-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;content:"\f0c9"}
-@media only screen and (min-width: 1024px){.closeaside{display:block;position:absolute;right:25px;top:22px}
-}#asidepart{background:#fafafa;margin:1em 0 0;padding:.5em 2% 1em;}
+#asidepart{background:#fafafa;margin:1em 0 0;padding:.5em 2% 1em;}
 @media only screen and (min-width: 1024px){#asidepart{position:relative;float:left;width:18%;margin:2em 0 0 3%}
 }.asidetitle{font-size:1.1em;color:#2ca6cb;padding:0 0 .3125em 0;border-bottom:.1875em solid #ccc;}
 .asidetitle a{color:#2ca6cb;}
