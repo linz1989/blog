@@ -50,7 +50,6 @@
     
   </ul>
 </nav>
-
   </header>
   <div id="container">
     <div id="main">
@@ -165,6 +164,12 @@ $(document).ready(function(){
     else{
       if(nav.hasClass("fixed")){ nav.removeClass("fixed") }
     }
+  });
+
+  
+  $("#mobile-start").click(function(){
+    $(this).toggleClass("active");
+    $("#mobile-menu").toggleClass("active");
   });
 });
 </script>

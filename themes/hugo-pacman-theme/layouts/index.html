@@ -15,6 +15,12 @@
     </div>
     {{ partial "sidebar.html" . }}
   </div>
+  <ul id="mobile-menu" class="">
+    {{ range .Site.Menus.Main }}
+    <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+    {{ end }}
+  </ul>
+  <div id="mobile-start" class=""></div>
   <footer>{{ partial "footer.html" . }}</footer>
   {{ partial "after_footer.html" .}}
 </body>

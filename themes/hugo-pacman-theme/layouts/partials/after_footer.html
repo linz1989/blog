@@ -31,6 +31,12 @@ $(document).ready(function(){
       if(nav.hasClass("fixed")){ nav.removeClass("fixed") }
     }
   });
+
+  //////////////////////////移动端菜单显示
+  $("#mobile-start").click(function(){
+    $(this).toggleClass("active");
+    $("#mobile-menu").toggleClass("active");
+  });
 });
 </script>
 {{ if eq .Section "post" }}

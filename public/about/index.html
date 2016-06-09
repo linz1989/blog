@@ -50,7 +50,6 @@
     
   </ul>
 </nav>
-
   </header>
   <div id="container">
     <div id="main" class="post" itemscope itemprop="blogPost">
@@ -182,6 +181,18 @@ s.setAttribute('data-timestamp', +new Date());
 </div>
 
   </div>
+  <ul id="mobile-menu" class="">
+    
+    <li><a href="/about">About Me</a></li>
+    
+    <li><a href="/life">生活&amp;读书</a></li>
+    
+    <li><a href="/programming">编程&amp;工作</a></li>
+    
+    <li><a href="/">首页</a></li>
+    
+  </ul>
+  <div id="mobile-start" class=""></div>
   <footer><p class="copyright">Powered by <a href="http://gohugo.io" target="_blank" title="hugo">hugo</a> and <a href="https://github.com/coderzh/hugo-pacman-theme" target="_blank" title="hugo-pacman-theme">hugo-pacman-theme</a> © 2016
   
   <a href="https://linz1989.github.io/" target="_blank" title="zhangjialin">zhangjialin</a>
@@ -220,6 +231,12 @@ $(document).ready(function(){
     else{
       if(nav.hasClass("fixed")){ nav.removeClass("fixed") }
     }
+  });
+
+  
+  $("#mobile-start").click(function(){
+    $(this).toggleClass("active");
+    $("#mobile-menu").toggleClass("active");
   });
 });
 </script>
