@@ -105,16 +105,17 @@ ul#mobile-menu{
 ul#mobile-menu li{
     background-color: rgba(51,51,153,0.8);
     width:7em;
-    height:2.8em;
+    height:2.6em;
     margin-bottom:0.8em;
     color:#ddd;
     text-align: center;
-    line-height: 2.8em;
+    line-height: 2.6em;
 }
 ul#mobile-menu li a{
     display: block;
     height:100%;
     color:#ddd;
+    font-size:90%;
 }
 ul#mobile-menu.active{
     -webkit-transform: scale(1,1);
@@ -147,12 +148,12 @@ div#mobile-start::after{
     content:"";
     position: absolute;
     display: block;
-    width:0.8em;
-    height:0.8em;
+    width:0.6em;
+    height:0.6em;
     left:50%;
     top:40%;
-    margin-left:-0.4em;
-    mergin-top:-0.4em;
+    margin-left:-0.3em;
+    mergin-top:-0.3em;
     border-left:2px solid #ddd;
     border-bottom:2px solid #ddd;
     -webkit-transition: all 0.3s;

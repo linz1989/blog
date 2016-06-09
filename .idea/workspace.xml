@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84abe19f-7002-49a1-b89e-35dd709c5905" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/hugo-pacman-theme/layouts/_default/list.html" afterPath="$PROJECT_DIR$/themes/hugo-pacman-theme/layouts/_default/list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/hugo-pacman-theme/layouts/_default/single.html" afterPath="$PROJECT_DIR$/themes/hugo-pacman-theme/layouts/_default/single.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/hugo-pacman-theme/layouts/index.html" afterPath="$PROJECT_DIR$/themes/hugo-pacman-theme/layouts/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/hugo-pacman-theme/layouts/partials/after_footer.html" afterPath="$PROJECT_DIR$/themes/hugo-pacman-theme/layouts/partials/after_footer.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/hugo-pacman-theme/layouts/partials/header.html" afterPath="$PROJECT_DIR$/themes/hugo-pacman-theme/layouts/partials/header.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/hugo-pacman-theme/static/css/style.css" afterPath="$PROJECT_DIR$/themes/hugo-pacman-theme/static/css/style.css" />
     </list>
     <ignored path="myblog.iws" />
@@ -51,11 +45,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/themes/hugo-pacman-theme/static/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="439">
-              <caret line="101" column="12" selection-start-line="101" selection-start-column="12" selection-end-line="101" selection-end-column="12" />
+            <state relative-caret-position="389">
+              <caret line="117" column="18" selection-start-line="117" selection-start-column="18" selection-end-line="117" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -81,7 +75,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="single.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="single.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/themes/hugo-pacman-theme/layouts/_default/single.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="350">
@@ -115,11 +109,11 @@
         <option value="$PROJECT_DIR$/themes/hugo-pacman-theme/layouts/partials/sidebar.html" />
         <option value="$PROJECT_DIR$/themes/hugo-pacman-theme/layouts/partials/footer.html" />
         <option value="$PROJECT_DIR$/themes/hugo-pacman-theme/layouts/partials/header.html" />
-        <option value="$PROJECT_DIR$/themes/hugo-pacman-theme/static/css/style.css" />
         <option value="$PROJECT_DIR$/themes/hugo-pacman-theme/layouts/index.html" />
         <option value="$PROJECT_DIR$/themes/hugo-pacman-theme/layouts/partials/after_footer.html" />
         <option value="$PROJECT_DIR$/themes/hugo-pacman-theme/layouts/_default/list.html" />
         <option value="$PROJECT_DIR$/themes/hugo-pacman-theme/layouts/_default/single.html" />
+        <option value="$PROJECT_DIR$/themes/hugo-pacman-theme/static/css/style.css" />
       </list>
     </option>
   </component>
@@ -349,12 +343,12 @@
       <workItem from="1465393065084" duration="4523000" />
       <workItem from="1465431427479" duration="580000" />
       <workItem from="1465432027079" duration="3271000" />
-      <workItem from="1465480334714" duration="2719000" />
+      <workItem from="1465480334714" duration="3253000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46450000" />
+    <option name="totallyTimeSpent" value="46984000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1366" height="693" extended-state="7" />
@@ -721,14 +715,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/themes/hugo-pacman-theme/static/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="101" column="12" selection-start-line="101" selection-start-column="12" selection-end-line="101" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config.toml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="522">
@@ -775,6 +761,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="350">
           <caret line="14" column="40" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/hugo-pacman-theme/static/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="117" column="18" selection-start-line="117" selection-start-column="18" selection-end-line="117" selection-end-column="18" />
           <folding />
         </state>
       </provider>
