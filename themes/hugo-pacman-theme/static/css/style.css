@@ -198,8 +198,7 @@ div#mobile-start.active::after{
 }@media only screen and (min-width: 1024px){#container{width:94%}
 }@media only screen and (min-width: 1440px){#container{width:1353px;}
 }#main{margin:1em 0 0;line-height:1.8;}
-@media only screen and (min-width: 1024px){#main{margin:2em 0 0;width:75%;float:left;-webkit-transition:margin 0.5s ease-out;-moz-transition:margin 0.5s ease-out;-o-transition:margin 0.5s ease-out;-ms-transition:margin 0.5s ease-out;transition:margin 0.5s ease-out}
-}
+@media only screen and (min-width: 1024px){#main{margin:1.5em 0 0;width:75%;float:left;-webkit-transition:margin 0.5s ease-out;-moz-transition:margin 0.5s ease-out;-o-transition:margin 0.5s ease-out;-ms-transition:margin 0.5s ease-out;transition:margin 0.5s ease-out} }
 #main section.post{ background:#fafafa;margin-bottom:.125em; }
 #main section.post a{display:block;position:relative;padding:.5em;}
 @media only screen and (min-width: 768px){#main section.post a{padding:1em} }
@@ -360,7 +359,7 @@ footer.article-footer{background:#fafafa;padding:0 4%;margin:0;border-top:1px so
 #toc.toc-aside a:hover{color:#ea6753;-webkit-transition:color 0.3s ease-out;-moz-transition:color 0.3s ease-out;-o-transition:color 0.3s ease-out;-ms-transition:color 0.3s ease-out;transition:color 0.3s ease-out}
 .active{color:#ea6753 !important}
 #asidepart{background:#fafafa;margin:1em 0 0;padding:.5em 2% 1em;}
-@media only screen and (min-width: 1024px){#asidepart{position:relative;float:left;width:18%;margin:2em 0 0 3%}
+@media only screen and (min-width: 1024px){#asidepart{position:relative;float:left;width:18%;margin:1.5em 0 0 3%}
 }.asidetitle{font-size:1.1em;color:#2ca6cb;padding:0 0 .3125em 0;border-bottom:.1875em solid #ccc;}
 .asidetitle a{color:#2ca6cb;}
 .asidetitle a:hover{color:#ea6753;-webkit-transition:color 0.5s;-moz-transition:color 0.5s;-o-transition:color 0.5s;-ms-transition:color 0.5s;transition:color 0.5s}
