@@ -57,20 +57,10 @@
       
       <section class="post" itemscope itemprop="blogPost">
     <a href="https://linz1989.github.io/about/" title="About Me" itemprop="url">
-    <h1 itemprop="name">About Me</h1>
-    <p itemprop="description">Programmer，Web前端开发，目前就职于深圳石豆软件。 喜欢历史、音乐。看起来一副永远不成熟的样子，其实已经大学毕业五年了。 很多博客平</p>
-    <time datetime="2016-05-30 23:28:02 &#43;0800 CST" itemprop="datePublished">2016年05月30日</time>
-  </a>
-</section>
-
-      
-      
-      <section class="post" itemscope itemprop="blogPost">
-    <a href="https://linz1989.github.io/post/first/" title="first" itemprop="url">
-    <h1 itemprop="name">first</h1>
-    <p itemprop="description"></p>
-    <time datetime="2016-03-20 12:13:19 &#43;0800 CST" itemprop="datePublished">2016年03月20日</time>
-  </a>
+        <h1 itemprop="name">About Me</h1>
+        <p itemprop="description">Programmer，Web前端开发，目前就职于深圳石豆软件。 喜欢历史、音乐。看起来一副永远不成熟的样子，其实已经大学毕业五年了。 很多博客平</p>
+        <time datetime="2016-05-30 23:28:02 &#43;0800 CST" itemprop="datePublished">2016年05月30日</time>
+    </a>
 </section>
 
       
@@ -82,29 +72,9 @@
 <aside class="clearfix">
   
 
-<div class="categorieslist">
-  <p class="asidetitle">分类</p>
-  <ul>
-    
-    <li><a href="https://linz1989.github.io/categories/%e6%8a%80%e6%9c%af%e6%96%87%e7%ab%a0" title="技术文章">技术文章<sup>1</sup></a></li>
-    
-  </ul>
-</div>
-
 
 
   
-
-<div class="tagslist">
-	<p class="asidetitle">标签</p>
-		<ul class="clearfix">
-      
-			<li><a href="https://linz1989.github.io/tags/bar" title="bar">bar<sup>1</sup></a></li>
-      
-			<li><a href="https://linz1989.github.io/tags/foo" title="foo">foo<sup>1</sup></a></li>
-      
-		</ul>
-</div>
 
 
 
@@ -118,28 +88,12 @@
         <a class="archive-list-link" href="https://linz1989.github.io/post/#2016-05">2016年05月</a><span class="archive-list-count">1</span>
       </li>
       
-      
-      <li class="archive-list-item">
-        <a class="archive-list-link" href="https://linz1989.github.io/post/#2016-03">2016年03月</a><span class="archive-list-count">1</span>
-      </li>
-      
     </ul>
 
   </div>
 
 
   
-
-<div class="tagcloudlist">
-  <p class="asidetitle">标签云</p>
-  <div class="tagcloudlist clearfix">
-    
-    <a href="https://linz1989.github.io/tags/bar" style="font-size: 12px;">bar</a>
-    
-    <a href="https://linz1989.github.io/tags/foo" style="font-size: 12px;">foo</a>
-    
-  </div>
-</div>
 
 
 
@@ -177,7 +131,7 @@ $(document).ready(function(){
       myWidth = document.documentElement.clientWidth;
     }
   }
-  var m = $('#main'), a = $('#asidepart'), nav = $("header>nav") , $win = $(window);
+  var m = $('#main'), a = $('#asidepart'), header = $("body>header") , $win = $(window);
   $win.resize(function(){
     getSize();
     if (myWidth >= 1024) {
@@ -189,20 +143,20 @@ $(document).ready(function(){
     }
   });
 
-  $win.scroll(function(){
-    var scrollTop = $win.scrollTop();
-    if(scrollTop>140 && $win.width()>=1000){
-      if(!nav.hasClass("fixed")){ nav.addClass("fixed") }
-    }
-    else{
-      if(nav.hasClass("fixed")){ nav.removeClass("fixed") }
-    }
-  });
-
   
   $("#mobile-start").click(function(){
     $(this).toggleClass("active");
     $("#mobile-menu").toggleClass("active");
+  });
+
+  $win.scroll(function(){
+    if($win.width()>=1000){
+      var scrollTop = $win.scrollTop();
+      console.log("scrollTop："+scrollTop+"  "+(+new Date()))
+      if(scrollTop>138){ header.addClass("fixed"); console.log("add fixed"+(+new Date())) }
+      else{ header.removeClass("fixed"); console.log("remove fixed"+(+new Date())) }
+    }
+    else header.removeClass("fixed");
   });
 });
 </script>

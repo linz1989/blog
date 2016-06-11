@@ -10,7 +10,7 @@ $(document).ready(function(){
       myWidth = document.documentElement.clientWidth;
     }
   }
-  var m = $('#main'), a = $('#asidepart'), nav = $("header>nav") , $win = $(window);
+  var m = $('#main'), a = $('#asidepart'), header = $("body>header") , $win = $(window);
   $win.resize(function(){
     getSize();
     if (myWidth >= 1024) {
@@ -22,20 +22,20 @@ $(document).ready(function(){
     }
   });
 
-  $win.scroll(function(){
-    var scrollTop = $win.scrollTop();
-    if(scrollTop>140 && $win.width()>=1000){
-      if(!nav.hasClass("fixed")){ nav.addClass("fixed") }
-    }
-    else{
-      if(nav.hasClass("fixed")){ nav.removeClass("fixed") }
-    }
-  });
-
   //////////////////////////移动端菜单显示
   $("#mobile-start").click(function(){
     $(this).toggleClass("active");
     $("#mobile-menu").toggleClass("active");
+  });
+
+  $win.scroll(function(){
+    if($win.width()>=1000){
+      var scrollTop = $win.scrollTop();
+      console.log("scrollTop："+scrollTop+"  "+(+new Date()))
+      if(scrollTop>138){ header.addClass("fixed"); console.log("add fixed"+(+new Date())) }
+      else{ header.removeClass("fixed"); console.log("remove fixed"+(+new Date())) }
+    }
+    else header.removeClass("fixed");
   });
 });
 </script>
@@ -43,19 +43,9 @@ $(document).ready(function(){
 <script type="text/javascript">
 $(document).ready(function(){
   var ai = $('.article-content>iframe'),
-      ae = $('.article-content>embed'),
-      t  = $('#toc'),
-      ah = $('article h2'),
-      ta = $('#toc.toc-aside');
+      ae = $('.article-content>embed');
   if(ai.length>0){ ai.wrap('<div class="video-container" />') }
   if(ae.length>0){ ae.wrap('<div class="video-container" />') }
-  if(ah.length==0){
-    t.css('display','none');
-  }else{
-    $(window).scroll(function(){
-      ta.css("top",Math.max(140,320-$(this).scrollTop()));
-    });
-  }
 });
 </script>
 {{ end }}

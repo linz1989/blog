@@ -16,7 +16,7 @@ RSSUri = "feed.xml"
   Description = ""
   Subtitle = "生命可以随心所欲，但不能随波逐流"
   Weibo = ""
-  WeiboID = 1816308191
+  WeiboID = ""
   Twitter = ""
   GitHub = "linz1989"
   Facebook = ""
@@ -27,7 +27,7 @@ RSSUri = "feed.xml"
   MonthFormat = "2006年01月"
   FancyBox = true
 
-  #[Params.DuoShuo]
+  # [Params.DuoShuo]
   #  ShortName = ""
 
   [Params.Disqus]
