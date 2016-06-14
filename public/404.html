@@ -108,7 +108,7 @@ $(document).ready(function(){
       myWidth = document.documentElement.clientWidth;
     }
   }
-  var m = $('#main'), a = $('#asidepart'), header = $("body>header") , $win = $(window);
+  var m = $('#main'), a = $('#asidepart'), nav = $("body>header>nav") , $win = $(window);
   $win.resize(function(){
     getSize();
     if (myWidth >= 1024) {
@@ -129,11 +129,10 @@ $(document).ready(function(){
   $win.scroll(function(){
     if($win.width()>=1000){
       var scrollTop = $win.scrollTop();
-      console.log("scrollTop："+scrollTop+"  "+(+new Date()))
-      if(scrollTop>138){ header.addClass("fixed"); console.log("add fixed"+(+new Date())) }
-      else{ header.removeClass("fixed"); console.log("remove fixed"+(+new Date())) }
+      if(scrollTop>138){ nav.addClass("fixed") }
+      else{ nav.removeClass("fixed") }
     }
-    else header.removeClass("fixed");
+    else nav.removeClass("fixed");
   });
 });
 </script>
