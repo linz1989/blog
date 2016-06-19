@@ -2,13 +2,13 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <title>About Me - linz blog</title>
+  <title>DataTables分页器的生成算法 - linz blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
   
-  <meta name="description" content="一名普通的Programmer，2011年计算机科学与技术专业毕业。接触过Flex&amp;Java技术，目前从事Web前端开发，就职于深圳">
+  <meta name="description" content="jQuery有一款很好用的表格插件：DataTables，对于构建后台管理之类的CRUD应用非常方便。 DataTables的分页器设计的很简">
   <meta name="author" content="zhangjialin">
-  <meta itemprop="name" content="About Me - linz blog">
-  <meta itemprop="description" content="一名普通的Programmer，2011年计算机科学与技术专业毕业。接触过Flex&amp;Java技术，目前从事Web前端开发，就职于深圳">
+  <meta itemprop="name" content="DataTables分页器的生成算法 - linz blog">
+  <meta itemprop="description" content="jQuery有一款很好用的表格插件：DataTables，对于构建后台管理之类的CRUD应用非常方便。 DataTables的分页器设计的很简">
   <meta itemprop="image" content="https://linz1989.github.io/img/author.jpg">
   
   
@@ -55,28 +55,172 @@
     <div id="main" class="post" itemscope itemprop="blogPost">
 	<article itemprop="articleBody">
     <header class="article-info clearfix">
-  <h1 itemprop="name">About Me</h1>
+  <h1 itemprop="name">DataTables分页器的生成算法</h1>
   <p class="article-author">By
     
       <a href="https://linz1989.github.io/" title="zhangjialin">zhangjialin</a>
     
   </p>
   <p class="article-time">
-    <time datetime="2016-05-30 23:28:02 &#43;0800 CST" itemprop="datePublished">2016年05月30日</time>
+    <time datetime="2016-06-01 21:11:02 &#43;0800 CST" itemprop="datePublished">2016年06月01日</time>
   </p>
 </header>
 
 	<div class="article-content">
     
-    <p>一名普通的Programmer，2011年计算机科学与技术专业毕业。接触过Flex&amp;Java技术，目前从事Web前端开发，就职于深圳石豆软件。</p>
+    <p>jQuery有一款很好用的表格插件：<a href="https://www.datatables.net">DataTables</a>，对于构建后台管理之类的CRUD应用非常方便。
+<img src="/img/content/algorithmOfPagination/1.png" alt="CRUD应用截图" /></p>
 
-<p>业余喜欢历史、音乐。看起来一副永远不成熟的样子。不善言辞。</p>
+<p>DataTables的分页器设计的很简约，一排简单的按钮就标示出了当前页、总页数，以及首页、末页、前一页、后一页的导航。当切换页码的时候，分页器按钮上的页码标识随之而变。</p>
 
-<p>博客是用Hugo创建的，主要是想记录自己的技术成长历程。</p>
+<p>观察发现，除去前一页、后一页按钮，如果总页数不大于7，则页码全部显示出来；否则，页码按钮固定7个，分别是首页和末页、当前页及当前页的左右页、中间页（用&hellip;标识）。</p>
 
-<p>页面样式相比原主题“hugo-pacman-theme”，改动了很多，主要是色调方面，整体布局并没有多大变化。如何搭建可以参考CoderZh的这篇文章：<a href="http://blog.coderzh.com/2015/08/29/hugo/">使用hugo搭建个人博客站点</a></p>
+<p>比如总页数29，分页器显示：</p>
 
-<p>“生命可以随心所欲，但不能随波逐流”一语出自动漫大师宫崎骏，头像也出自宫崎骏的作品《悬崖上的金鱼公主》。</p>
+<table>
+<thead>
+<tr>
+<th>当前页</th>
+<th align="center">页码</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>1</td>
+<td align="center">1、2、3、4、5、&hellip;、29</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td align="center">1、2、3、4、5、&hellip;、29</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td align="center">1、2、3、4、5、&hellip;、29</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td align="center">1、2、3、4、5、&hellip;、29</td>
+</tr>
+
+<tr>
+<td>5</td>
+<td align="center">1、&hellip;、4、5、6、&hellip;、29</td>
+</tr>
+
+<tr>
+<td>25</td>
+<td align="center">1、&hellip;、24、25、26、&hellip;、29</td>
+</tr>
+
+<tr>
+<td>26</td>
+<td align="center">1、&hellip;、25、26、27、28、29</td>
+</tr>
+
+<tr>
+<td>27</td>
+<td align="center">1、&hellip;、25、26、27、28、29</td>
+</tr>
+
+<tr>
+<td>28</td>
+<td align="center">1、&hellip;、25、26、27、28、29</td>
+</tr>
+
+<tr>
+<td>29</td>
+<td align="center">1、&hellip;、25、26、27、28、29</td>
+</tr>
+</tbody>
+</table>
+
+<p>当页码属于前4页或者末4页时，需要特殊处理下。个人实现的Pagination如下：</p>
+
+<p>dom容器：</p>
+
+<pre><code>&lt;div class=&quot;pagination&quot;&gt;&lt;div class=&quot;pages&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+</code></pre>
+
+<p>Pagination的定义：</p>
+
+<pre><code>function Pagination(ele,option){
+    this.ele = ele;//$(&quot;div.pagination&quot;)
+    this.option = option || {};
+    this.pages = ele.children(&quot;div.pages&quot;);
+    var pagObj = this;
+    pagObj.pages.on(&quot;click&quot;,&quot;a&quot;,function(){
+        if(!/disable/.test(this.className) &amp;&amp; this.innerHTML != &quot;...&quot;){
+            var gotoPage = 1;//需要跳转的页码
+            if(/prev/.test(this.className)){
+                gotoPage = pagObj.currPage-1;
+            }
+            else if(/next/.test(this.className)){
+                gotoPage = pagObj.currPage+1;
+            }
+            else{
+                gotoPage = parseInt(this.innerHTML);
+            }
+            pagObj.option.switchPage(gotoPage);//回调switchPage
+         }
+    })
+}
+</code></pre>
+
+<p>切换页码时，传入当前页码、总页数两个参数，更新Pagination:</p>
+
+<pre><code>Pagination.prototype.refresh = function(option){
+    this.currPage = option.currPage;//当前页
+    this.totalPage = option.totalPage;//总页数
+    var hasPrev = (option.currPage != 1), hasNext = (option.currPage != option.totalPage);
+    var htmlStr = &quot;&lt;a class='prev&quot;+(hasPrev ? &quot;&quot; : &quot; disable&quot;)+&quot;'&gt;&lt;&lt;&lt;/a&gt;&quot;;
+    var i;
+    if(option.totalPage&lt;=7){
+        for(i=1;i&lt;=option.totalPage;i++){
+            htmlStr += &quot;&lt;a&quot;+(i==this.currPage ? &quot; class='curr'&quot; : &quot;&quot;)+&quot;&gt;&quot;+i+&quot;&lt;/a&gt;&quot;
+        }
+    }
+    else{
+        var posArr = [1,,,,,,option.totalPage],//存放页码
+            leftVal = option.currPage-1,
+            rightVal = option.currPage+1;
+        if(leftVal&lt;3){
+            for(i=1;i&lt;=4;i++) posArr[i] = i+1;
+            posArr[5] = &quot;...&quot;;
+        }
+        else if(option.totalPage-rightVal&lt;3){
+            for(i=5;i&gt;=2;i--) posArr[i] = posArr[i+1]-1;
+            posArr[1]=&quot;...&quot;;
+        }
+        else{
+            posArr[1] = &quot;...&quot;;
+            posArr[2] = leftVal;
+            posArr[3] = option.currPage;
+            posArr[4] = rightVal;
+            posArr[5] = &quot;...&quot;;
+        }
+        for(i=0;i&lt;posArr.length;i++){
+            htmlStr +=&quot;&lt;a&quot;+(posArr[i]==option.currPage ? &quot; class='curr'&quot; : &quot;&quot;)+&quot;&gt;&quot;+posArr[i]+&quot;&lt;/a&gt;&quot;;
+        }
+    }
+    htmlStr +=&quot;&lt;a class='next&quot;+(hasNext ? &quot;&quot; : &quot; disable&quot;)+&quot;'&gt;&gt;&gt;&lt;/a&gt;&quot;;
+    this.pages.html(htmlStr);
+};
+</code></pre>
+
+<p>使用：</p>
+
+<pre><code>var pagination = new Pagination($(&quot;div.pagination&quot;),{
+        switchPage : function(page){
+            console.log(&quot;switch page：&quot;+page);
+            pagination.refresh({ currPage : page , totalPage : 10});
+        }
+});
+pagination.refresh({ currPage : 1 , totalPage : 10});
+</code></pre>
 
 	</div>
   <footer class="article-footer clearfix">
@@ -85,7 +229,7 @@
 
 
   <div class="article-share" id="share">
-    <div data-url="https://linz1989.github.io/about/" data-title="About Me" data-tsina="" class="share clearfix">
+    <div data-url="https://linz1989.github.io/programming/algorithmOfPagination/" data-title="DataTables分页器的生成算法" data-tsina="" class="share clearfix">
     </div>
   </div>
 </footer>
@@ -101,8 +245,8 @@
 
 
 var disqus_config = function () {
-this.page.url = "https://linz1989.github.io/about/";
-this.page.identifier = "https://linz1989.github.io/about/";
+this.page.url = "https://linz1989.github.io/programming/algorithmOfPagination/";
+this.page.identifier = "https://linz1989.github.io/programming/algorithmOfPagination/";
 };
 (function() { 
 var d = document, s = d.createElement('script');

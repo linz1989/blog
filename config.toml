@@ -13,7 +13,7 @@ RSSUri = "feed.xml"
 [Params]
   AuthorHomepage = "https://linz1989.github.io/"
   BottomIntroduce = "Introduce1 <br/> Introduce2"
-  Description = ""
+  Description = "linz web blog"
   Subtitle = "生命可以随心所欲，但不能随波逐流"
   Weibo = ""
   WeiboID = ""
@@ -68,4 +68,3 @@ RSSUri = "feed.xml"
      Name = "首页"
      URL = "/"
      Weight = 4
-

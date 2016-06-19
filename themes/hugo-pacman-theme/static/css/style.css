@@ -201,8 +201,8 @@ div#mobile-start.active::after{
 #main section.post{ background:#fafafa;margin-bottom:.125em; }
 #main section.post a{display:block;position:relative;padding:.5em;}
 @media only screen and (min-width: 768px){#main section.post a{padding:1em} }
-#main section.post a::after{content:"";display:block;position:absolute;height:2px;left:50%;right:50%;bottom:0;background-color: #003366;-webkit-transition:all 0.5s ease-out;-moz-transition:all 0.5s ease-out;-o-transition:all 0.5s ease-out;-ms-transition:all 0.5s ease-out;transition:all 0.5s ease-out}
-#main section.post a:hover::after{left:0;right:0;}
+#main section.post a::after{content:"";display:block;opacity:0;position:absolute;height:2px;left:50%;right:50%;bottom:0;background-color: #003366;-webkit-transition:all 0.5s ease-out;-moz-transition:all 0.5s ease-out;-o-transition:all 0.5s ease-out;-ms-transition:all 0.5s ease-out;transition:all 0.5s ease-out}
+#main section.post a:hover::after{left:0;right:0;opacity: 1;}
 #main section.post a h1{color:#2ca6cb;line-height:2}
 #main section.post a p{color:#817c7c}
 #main section.post a time{color:#817c7c;display:block;margin:.5em 0;font-size:.9em}

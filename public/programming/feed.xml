@@ -1,25 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>linz blog</title>
-    <link>https://linz1989.github.io/</link>
-    <description>Recent content on linz blog</description>
+    <title>Programmings on linz blog</title>
+    <link>https://linz1989.github.io/programming/</link>
+    <description>Recent content in Programmings on linz blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 19 Jun 2016 20:08:02 +0800</lastBuildDate>
-    <atom:link href="https://linz1989.github.io/feed/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>AngularJS学习笔记(1)</title>
-      <link>https://linz1989.github.io/life/angular-learning-1/</link>
-      <pubDate>Sun, 19 Jun 2016 20:08:02 +0800</pubDate>
-      
-      <guid>https://linz1989.github.io/life/angular-learning-1/</guid>
-      <description>&lt;p&gt;最先是买的Angular教程是《用AngularJS开发下一代Web应用》，但发现有的地方写的不够详细，让人很疑惑。&lt;/p&gt;
-
-&lt;p&gt;现在看的教程书籍是《Mastering Web Application Development with AngularJS》,这本书先试读了它的电子版，感觉更适合初学者。&lt;/p&gt;
-</description>
-    </item>
+    <lastBuildDate>Wed, 01 Jun 2016 21:11:02 +0800</lastBuildDate>
+    <atom:link href="https://linz1989.github.io/programming/feed/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>DataTables分页器的生成算法</title>
@@ -180,24 +168,6 @@
 });
 pagination.refresh({ currPage : 1 , totalPage : 10});
 &lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>About Me</title>
-      <link>https://linz1989.github.io/about/</link>
-      <pubDate>Mon, 30 May 2016 23:28:02 +0800</pubDate>
-      
-      <guid>https://linz1989.github.io/about/</guid>
-      <description>&lt;p&gt;一名普通的Programmer，2011年计算机科学与技术专业毕业。接触过Flex&amp;amp;Java技术，目前从事Web前端开发，就职于深圳石豆软件。&lt;/p&gt;
-
-&lt;p&gt;业余喜欢历史、音乐。看起来一副永远不成熟的样子。不善言辞。&lt;/p&gt;
-
-&lt;p&gt;博客是用Hugo创建的，主要是想记录自己的技术成长历程。&lt;/p&gt;
-
-&lt;p&gt;页面样式相比原主题“hugo-pacman-theme”，改动了很多，主要是色调方面，整体布局并没有多大变化。如何搭建可以参考CoderZh的这篇文章：&lt;a href=&#34;http://blog.coderzh.com/2015/08/29/hugo/&#34;&gt;使用hugo搭建个人博客站点&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;“生命可以随心所欲，但不能随波逐流”一语出自动漫大师宫崎骏，头像也出自宫崎骏的作品《悬崖上的金鱼公主》。&lt;/p&gt;
 </description>
     </item>
     
