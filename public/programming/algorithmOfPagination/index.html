@@ -73,9 +73,9 @@
 
 <p>DataTables的分页器设计的很简约，一排简单的按钮就标示出了当前页、总页数，以及首页、末页、前一页、后一页的导航。当切换页码的时候，分页器按钮上的页码标识随之而变。</p>
 
-<p>观察发现，除去前一页、后一页按钮，如果总页数不大于7，则页码全部显示出来；否则，页码按钮固定7个，分别是首页和末页、当前页及当前页的左右页、中间页（用&hellip;标识）。</p>
+<p>观察发现，除去前一页、后一页按钮，如果总页数不大于7，则页码全部显示出来；否则，页码按钮固定7个，分别是首页和末页、当前页及当前页的左右页、中间页（用&hellip;标识）。当页码属于前4页或者末4页时，连续显示前5加末页或者后5加首页。</p>
 
-<p>比如总页数29，分页器显示：</p>
+<p>比如总页数29，分页器随着当前页不同而显示如下：</p>
 
 <table>
 <thead>
@@ -112,6 +112,11 @@
 </tr>
 
 <tr>
+<td>&hellip;</td>
+<td align="center">&hellip;</td>
+</tr>
+
+<tr>
 <td>25</td>
 <td align="center">1、&hellip;、24、25、26、&hellip;、29</td>
 </tr>
@@ -138,9 +143,9 @@
 </tbody>
 </table>
 
-<p>当页码属于前4页或者末4页时，需要特殊处理下。个人实现的Pagination如下：</p>
+<p>实现的Pagination如下：</p>
 
-<p>dom容器：</p>
+<p>定义dom容器：</p>
 
 <pre><code>&lt;div class=&quot;pagination&quot;&gt;&lt;div class=&quot;pages&quot;&gt;&lt;/div&gt;&lt;/div&gt;
 </code></pre>
@@ -216,10 +221,9 @@
 <pre><code>var pagination = new Pagination($(&quot;div.pagination&quot;),{
         switchPage : function(page){
             console.log(&quot;switch page：&quot;+page);
-            pagination.refresh({ currPage : page , totalPage : 10});
         }
 });
-pagination.refresh({ currPage : 1 , totalPage : 10});
+pagination.refresh({ currPage : 1 , totalPage : 10});//更新显示
 </code></pre>
 
 	</div>
