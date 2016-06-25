@@ -256,11 +256,14 @@ article header.article-info >p.article-time::before{
     width:2.2em;
     height:2.2em;
     background-color: #fafafa;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
 @media only screen and (max-width: 768px){
     article header.article-info >p.article-time{
-        opacity: 0.5;
+        display: none;
     }
 }
 article .article-content{padding:0.5em 4% 1em;}
@@ -275,10 +278,9 @@ article .article-content acronym,article .article-content abbr{border-bottom:1px
 article .article-content blockquote{border-left:.2em solid #ea6753;margin:.65em 0 .65em 4%;padding-left:1%;line-height:1.5;font-size:110%;}
 article .article-content blockquote footer{background:#fafafa;padding:0;margin:0;font-size:80%;line-height:1em}
 article .article-content blockquote cite{font-style:italic;padding-left:.5em}
-article .article-content ul,article .article-content ol{padding-left:2em;font-size:105%;}
-@media only screen and (min-width: 768px){article .article-content ul,article .article-content ol{padding-left:3em}
-}article .article-content ul li{list-style:disc;text-align:match-parent;margin:.5em 0}
-article .article-content ol li{list-style-type:decimal;margin:.5em 0}
+article .article-content ul,article .article-content ol{padding-left:1em;font-size:105%;}
+article .article-content ul li{list-style:disc;text-align:match-parent;margin:.5em 0}
+article .article-content ol li{list-style-type:decimal;margin:.5em 0;line-height: 2;}
 article .article-content dl dt{font-weight:blod}
 article .article-content ul li>code,article .article-content ol li>code,article .article-content p code,article .article-content strong code,article .article-content em code{font-family:Monaco,Menlo,Consolas,Courier New,monospace;background:#eee;color:#747070;border:1px solid #d6d6d6;padding:0 5px;margin:0 2px;font-size:90%;white-space:nowrap;text-shadow:0 1px #fff}
 article .article-content p{font-size:105%;line-height:2;margin:.7em 0;}

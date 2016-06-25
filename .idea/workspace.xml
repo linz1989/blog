@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84abe19f-7002-49a1-b89e-35dd709c5905" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/hugo-pacman-theme/static/img/content/algorithmOfPagination/1.png" afterPath="$PROJECT_DIR$/themes/hugo-pacman-theme/static/img/content/algorithmOfPagination/1.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/content/programming/algorithmOfPagination.md" afterPath="$PROJECT_DIR$/content/programming/algorithmOfPagination.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/content/life/angular-learning-1.md" afterPath="$PROJECT_DIR$/content/life/angular-learning-1.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/themes/hugo-pacman-theme/static/css/style.css" afterPath="$PROJECT_DIR$/themes/hugo-pacman-theme/static/css/style.css" />
     </list>
     <ignored path="myblog.iws" />
@@ -29,8 +27,8 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/themes/hugo-pacman-theme/static/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="254" column="10" selection-start-line="254" selection-start-column="10" selection-end-line="254" selection-end-column="10" />
+            <state relative-caret-position="161">
+              <caret line="261" column="29" selection-start-line="261" selection-start-column="29" selection-end-line="261" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -256,15 +254,15 @@
       <workItem from="1466332179157" duration="6000" />
       <workItem from="1466338873106" duration="3000" />
       <workItem from="1466341002520" duration="3000" />
-      <workItem from="1466827539876" duration="3647000" />
+      <workItem from="1466827539876" duration="6585000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72370000" />
+    <option name="totallyTimeSpent" value="75308000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="24" width="1366" height="693" extended-state="6" />
+    <frame x="0" y="24" width="1366" height="693" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.04092262" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -641,8 +639,8 @@
     <entry file="file://$PROJECT_DIR$/content/programming/分页器的生成算法.md" />
     <entry file="file://$PROJECT_DIR$/themes/hugo-pacman-theme/static/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="254" column="10" selection-start-line="254" selection-start-column="10" selection-end-line="254" selection-end-column="10" />
+        <state relative-caret-position="161">
+          <caret line="261" column="29" selection-start-line="261" selection-start-column="29" selection-end-line="261" selection-end-column="29" />
           <folding />
         </state>
       </provider>
