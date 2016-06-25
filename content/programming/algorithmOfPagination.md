@@ -97,7 +97,7 @@ Pagination的定义：
 	    this.pages.html(htmlStr);
 	};
 
-使用：
+使用示例：
 
 	var pagination = new Pagination($("div.pagination"),{
 	        switchPage : function(page){

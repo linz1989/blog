@@ -242,13 +242,28 @@ div#mobile-start.active::after{
 .post,.page{background:#fafafa;}
 .post a,.page a{color:#2ca6cb;}
 .post a:hover,.page a:hover{color:#ea6753}
-article header.article-info{border-bottom:1px solid #dbdbdb;}
-article header.article-info >h1{padding:1em 3% 0;font-size:170%;line-height:1.5;word-wrap:break-word;word-break:normal;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
-@media only screen and (min-width: 1024px){article header.article-info >h1{font-size:200%;padding-top:.3em} }
-article header.article-info >p.article-author{float:right;padding:.3em 4% .3em 0;text-align:right;border-bottom:none}
-article header.article-info >p.article-time{padding-top:.1em;text-align:right;float:right;margin-right:1em;font-size:0.9em;}
-article header.article-info >p.article-time:before{font-family:"FontAwesome";font-size:130%;content:"\f017";-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-article .article-content{padding:1.5em 4%;}
+article header.article-info{position:relative;border-bottom:1px solid #dbdbdb;}
+article header.article-info >h1{padding:0.6em 3%;font-size:170%;line-height:1.5;word-wrap:break-word;word-break:normal;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+@media only screen and (min-width: 1024px){article header.article-info >h1{font-size:200%;} }
+article header.article-info >p.article-author{display: none}
+article header.article-info >p.article-time{position:absolute;top:0;right:0;padding:0.2em 0.5em 0.2em 2.5em; overflow:hidden;text-align:right;font-size:0.9em;background: #2ca6cb;color:#fff;}
+article header.article-info >p.article-time::before{
+    content : "";
+    display: block;
+    position: absolute;
+    left:-1.1em;
+    top:0;
+    width:2.2em;
+    height:2.2em;
+    background-color: #fafafa;
+    transform: rotate(45deg);
+}
+@media only screen and (max-width: 768px){
+    article header.article-info >p.article-time{
+        opacity: 0.5;
+    }
+}
+article .article-content{padding:0.5em 4% 1em;}
 article .article-content .kb{padding:.1em .6em;border:1px solid #ccc;background-color:code-color;color:#8f8f8f;-webkit-box-shadow:0 1px 0 rgba(0,0,0,0.2),0 0 0 2px #fff inset;box-shadow:0 1px 0 rgba(0,0,0,0.2),0 0 0 2px #fff inset;-webkit-border-radius:3px;border-radius:3px;display:inline-block;margin:0 .1em;text-shadow:0 1px 0 #fff;line-height:1.5;white-space:nowrap}
 article .article-content h1,article .article-content h2{font-size:180%;line-height:1.2em}
 article .article-content h3,article .article-content h4,article .article-content h5,article .article-content h6{font-size:140%}
@@ -274,7 +289,7 @@ article .article-content p{font-size:105%;line-height:2;margin:.7em 0;}
 article .article-content .video-container{position:relative;padding-top:56%;height:0;overflow:hidden;}
 article .article-content .video-container iframe,article .article-content .video-container object,article .article-content .video-container embed{position:absolute;top:0;left:0;width:100%;height:100%;margin-top:0}
 article .article-content table{width:100%;border-collapse:collapse;border-spacing:0;}
-article .article-content table th{font-weight:bold;border-bottom:3px solid #dbdbdb;padding-bottom:.5em}
+article .article-content table th{border-bottom:3px solid #dbdbdb;padding-bottom:.5em}
 article .article-content table td{border-bottom:1px solid #dbdbdb;padding:10px 0}
 article .article-content .pullquote{text-align:left;width:45%;margin:0;border:none}
 article .article-content .left{margin-left:.5em;margin-right:1em;float:left}
@@ -428,7 +443,7 @@ footer{margin-top:1em;padding:0 2% .5em}
 }
 .copyright a:hover{color:#003366}
 .article-content code, .entry pre { font-family: Hack, monospace; font-size: 14px; }
-.article-content pre { margin: 10px 0 15px 0; border: 1px solid #ddd; line-height: 24px; white-space: pre-wrap; word-wrap: break-word; overflow-x: auto; overflow-y: hidden; }
+.article-content pre {border-radius: 4px; margin: 10px 0 15px 0; border: 1px solid #ddd; line-height: 24px; white-space: pre-wrap; word-wrap: break-word; overflow-x: auto; overflow-y: hidden; }
 .ds-highlight{color:#2ca6cb !important;}
 .ds-highlight:hover{color:#ea6753 !important}
 .ds-avatar{background:#fafafa !important;}

@@ -175,7 +175,7 @@
 };
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;使用：&lt;/p&gt;
+&lt;p&gt;使用示例：&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;var pagination = new Pagination($(&amp;quot;div.pagination&amp;quot;),{
         switchPage : function(page){
