@@ -10,9 +10,227 @@
     <atom:link href="https://linz1989.github.io/programming/feed/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>类似Bootstrap的Modal组件实现</title>
+      <link>https://linz1989.github.io/programming/modal/</link>
+      <pubDate>Wed, 01 Jun 2016 21:11:02 +0800</pubDate>
+      
+      <guid>https://linz1989.github.io/programming/modal/</guid>
+      <description>&lt;p&gt;当前流行的框架Bootstrap的Modal组件风格很不错。模态框从上到下、逐渐浮现到页面前。
+&lt;img src=&#34;https://linz1989.github.io/img/content/modal/1.png&#34; alt=&#34;modal截图&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;下面是防照其样式自定义的Modal效果：
+&lt;img src=&#34;https://linz1989.github.io/img/content/modal/2.png&#34; alt=&#34;modal截图&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;以下是实现过程。&lt;/p&gt;
+
+&lt;p&gt;以上图修改密码的模态框为例，页面DOM结构：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;div class=&amp;quot;modal&amp;quot; id=&amp;quot;changePwModal&amp;quot;&amp;gt;
+    &amp;lt;div&amp;gt;
+    &amp;lt;h3 class=&amp;quot;header&amp;quot;&amp;gt;修改密码&amp;lt;span&amp;gt;X&amp;lt;/span&amp;gt;&amp;lt;/h3&amp;gt;
+    &amp;lt;div class=&amp;quot;content form&amp;quot;&amp;gt;
+        &amp;lt;div&amp;gt;&amp;lt;label&amp;gt;用户名：&amp;lt;/label&amp;gt;&amp;lt;input id=&amp;quot;changePw-name&amp;quot; type=&amp;quot;text&amp;quot; maxlength=&amp;quot;30&amp;quot; placeholder=&amp;quot;请输入当前账号&amp;quot;/&amp;gt;&amp;lt;/div&amp;gt;
+        &amp;lt;div&amp;gt;&amp;lt;label&amp;gt;旧密码：&amp;lt;/label&amp;gt;&amp;lt;input id=&amp;quot;changePw-currPw&amp;quot; type=&amp;quot;password&amp;quot; maxlength=&amp;quot;30&amp;quot; placeholder=&amp;quot;请输入当前密码&amp;quot;/&amp;gt;&amp;lt;/div&amp;gt;
+        &amp;lt;div&amp;gt;&amp;lt;label&amp;gt;新密码：&amp;lt;/label&amp;gt;&amp;lt;input id=&amp;quot;changePw-newPw&amp;quot; type=&amp;quot;password&amp;quot; maxlength=&amp;quot;30&amp;quot; placeholder=&amp;quot;请输入新的密码&amp;quot;/&amp;gt;&amp;lt;/div&amp;gt;
+        &amp;lt;div&amp;gt;&amp;lt;label&amp;gt;新密码确认：&amp;lt;/label&amp;gt;&amp;lt;input id=&amp;quot;changePw-repeatNewPw&amp;quot; type=&amp;quot;password&amp;quot; maxlength=&amp;quot;30&amp;quot; placeholder=&amp;quot;请再次输入新密码&amp;quot;/&amp;gt;&amp;lt;/div&amp;gt;
+    &amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;footer&amp;quot;&amp;gt;&amp;lt;span class=&amp;quot;tip&amp;quot;&amp;gt;请输入当前密码！&amp;lt;/span&amp;gt;&amp;lt;a class=&amp;quot;ok&amp;quot;&amp;gt;确定&amp;lt;/a&amp;gt;&amp;lt;a class=&amp;quot;cancel&amp;quot;&amp;gt;取消&amp;lt;/a&amp;gt;&amp;lt;/div&amp;gt;
+    &amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Modal样式(scss语法)：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;div.modal{
+  display: none;
+  position: fixed;
+  left:0;
+  top:0;
+  right:0;
+  bottom:0;
+  background-color: rgba(0,0,0,0.5);
+  z-index:10;
+  opacity: 0;
+  @include transition(opacity .15s linear);
+  &amp;amp;&amp;gt;div{
+    width:600px;
+    background-color: #fff;
+    margin:12% auto 0;
+    border-radius: 4px;
+    @include ty(0 5px 15px rgba(0,0,0,.5));
+    -webkit-transition: -webkit-transform .3s ease-out;
+    -o-transition: -o-transform .3s ease-out;
+    transition: transform .3s ease-out;
+    -webkit-transform: translate(0,-25%);
+    -ms-transform: translate(0,-25%);
+    -o-transform: translate(0,-25%);
+    transform: translate(0,-25%);
+    &amp;amp;&amp;gt;h3.header{
+      height:50px;
+      line-height: 50px;
+      background-color: #293c55;
+      padding-left:20px;
+      font-size:16px;
+      color:#fff;
+      &amp;amp;&amp;gt;span{
+    float: right;
+    margin-right:10px;
+    color:#ccc;
+    &amp;amp;:hover{
+      cursor: pointer;
+      color:#eee;
+    }
+      }
+    }
+    &amp;amp;&amp;gt;div.footer{
+      height:60px;
+      border-top:1px solid #d9d9d9;
+      text-align: right;
+      line-height:60px;
+      &amp;amp;&amp;gt;a{
+    padding: 8px 22px;
+    border: 1px solid #efefef;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right:15px;
+    &amp;amp;.cancel{
+      background-color: #f5f5f5;
+      color: #666;
+      &amp;amp;:hover{
+        background-color: #e9e9e9;
+      }
+    }
+    &amp;amp;.ok{
+      background-color: rgba(41, 60, 85,0.8);
+      color:#fff;
+      border-color:rgba(41, 60, 85,0.8);
+      &amp;amp;:hover{
+        background-color: #293c55;
+        border-color: #293c55;
+      }
+    }
+      }
+      &amp;amp;&amp;gt;span.tip{
+    display: none;
+    float: left;
+    padding-left: 20px;
+    color: #ff6666;
+    font-weight: bold;
+    &amp;amp;.ok{
+      color:#00aa00;
+    }
+      }
+    }
+    &amp;amp;&amp;gt;div.content.form{
+      &amp;amp;&amp;gt;div{
+    margin:15px 10px;
+    &amp;amp;&amp;gt;label{
+      display: inline-block;
+      width:180px;
+      text-align: right;
+    }
+    &amp;amp;&amp;gt;input,select{
+      padding:6px 10px;
+      width:250px;
+    }
+    &amp;amp;&amp;gt;select{
+      width:270px;
+      margin-left:-4px;
+    }
+    &amp;amp;&amp;gt;span{
+      font-weight: bold;
+      color:#ff6666;
+      margin-left:8px;
+    }
+      }
+    }
+  }
+  &amp;amp;.active{
+    opacity: 1;
+    &amp;amp;&amp;gt;div{
+      -webkit-transform: translate(0,0);
+      -ms-transform: translate(0,0);
+      -o-transform: translate(0,0);
+      transform: translate(0,0);
+    }
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;组件定义：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function Modal(ele,option){
+    this.ele = ele;
+    this.option = option || {};
+
+    var thisModel = this;
+    var closeTag = this.ele.find(&amp;quot;div&amp;gt;h3.header&amp;gt;span&amp;quot;),
+    cancelBtn = this.ele.find(&amp;quot;div&amp;gt;div.footer&amp;gt;a.cancel&amp;quot;),
+    okBtn = this.ele.find(&amp;quot;div&amp;gt;div.footer&amp;gt;a.ok&amp;quot;);
+    if(closeTag[0]){
+    closeTag.click(function(){ thisModel.close() });
+    }
+    if(cancelBtn[0]){
+    cancelBtn.click(function(){ thisModel.close() });
+    }
+    if(okBtn[0] &amp;amp;&amp;amp; option.doClickOkBtn){
+    okBtn.click(function(){
+        option.doClickOkBtn();
+    });
+    }
+
+    this.tip = this.ele.find(&amp;quot;div&amp;gt;div.footer&amp;gt;span.tip&amp;quot;);
+}
+Modal.prototype.show = function(){
+    this.ele.css(&amp;quot;display&amp;quot;,&amp;quot;block&amp;quot;);
+    var ele = this.ele;
+    setTimeout(function(){
+    ele.addClass(&amp;quot;active&amp;quot;);
+    },30);
+};
+Modal.prototype.close = function(){
+    this.ele.removeClass(&amp;quot;active&amp;quot;);
+    var ele = this.ele;
+    setTimeout(function(){
+    ele.css(&amp;quot;display&amp;quot;,&amp;quot;none&amp;quot;);
+    },500);
+};
+Modal.prototype.showTip = function(tipStr,isOk){
+    if(this.tip &amp;amp;&amp;amp; this.tip[0]){
+    if(tipStr) this.tip.text(tipStr);
+    isOk===true ? this.tip.addClass(&amp;quot;ok&amp;quot;) : this.tip.removeClass(&amp;quot;ok&amp;quot;);
+    this.tip.show();
+    var tipEle = this.tip;
+    setTimeout(function(){ tipEle.hide() },3000)
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;使用示例：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var changePwModal = new Modal($(&amp;quot;#changePwModal&amp;quot;),{
+    doClickOkBtn : function(){
+        if(checkChangePwFormValidate()){//校验表单
+           ///.....
+           changePwModal.showTip(&amp;quot;修改成功！&amp;quot;,true);
+           ///.....
+           changePwModal.close();//关闭
+        }
+    }
+    });
+
+$(&amp;quot;header&amp;gt;div.link&amp;gt;a:eq(0)&amp;quot;).click(function(){//点击修改密码，modal show
+    ///...
+    changePwModal.show();
+    });
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
       <title>DataTables分页器的生成算法</title>
       <link>https://linz1989.github.io/programming/algorithmOfPagination/</link>
-      <pubDate>Wed, 01 Jun 2016 21:11:02 +0800</pubDate>
+      <pubDate>Sun, 15 May 2016 20:01:01 +0800</pubDate>
       
       <guid>https://linz1989.github.io/programming/algorithmOfPagination/</guid>
       <description>&lt;p&gt;jQuery有一款很好用的表格插件：&lt;a href=&#34;https://www.datatables.net&#34;&gt;DataTables&lt;/a&gt;，对于构建后台管理之类的CRUD应用非常方便。

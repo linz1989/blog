@@ -2,13 +2,13 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <title>DataTables分页器的生成算法 - linz blog</title>
+  <title>AngularJS学习笔记(2) - linz blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
   
-  <meta name="description" content="jQuery有一款很好用的表格插件：DataTables，对于构建后台管理之类的CRUD应用非常方便。 DataTables的分页器设计的很简">
+  <meta name="description" content="第二章讲解的是如何构建与测试。 MongoLab为数据量在0.5GB以下的数据库提供免费寄存，提供输出JSON格式的REST接口。 构建系统准则">
   <meta name="author" content="zhangjialin">
-  <meta itemprop="name" content="DataTables分页器的生成算法 - linz blog">
-  <meta itemprop="description" content="jQuery有一款很好用的表格插件：DataTables，对于构建后台管理之类的CRUD应用非常方便。 DataTables的分页器设计的很简">
+  <meta itemprop="name" content="AngularJS学习笔记(2) - linz blog">
+  <meta itemprop="description" content="第二章讲解的是如何构建与测试。 MongoLab为数据量在0.5GB以下的数据库提供免费寄存，提供输出JSON格式的REST接口。 构建系统准则">
   <meta itemprop="image" content="https://linz1989.github.io/img/author.jpg">
   
   
@@ -55,176 +55,42 @@
     <div id="main" class="post" itemscope itemprop="blogPost">
 	<article itemprop="articleBody">
     <header class="article-info clearfix">
-  <h1 itemprop="name">DataTables分页器的生成算法</h1>
+  <h1 itemprop="name">AngularJS学习笔记(2)</h1>
   <p class="article-author">By
     
       <a href="https://linz1989.github.io/" title="zhangjialin">zhangjialin</a>
     
   </p>
   <p class="article-time">
-    <time datetime="2016-05-15 20:01:01 &#43;0800 CST" itemprop="datePublished">2016年05月15日</time>
+    <time datetime="2016-06-20 21:01:02 &#43;0800 CST" itemprop="datePublished">2016年06月20日</time>
   </p>
 </header>
 
 	<div class="article-content">
     
-    <p>jQuery有一款很好用的表格插件：<a href="https://www.datatables.net">DataTables</a>，对于构建后台管理之类的CRUD应用非常方便。
-<img src="/img/content/algorithmOfPagination/1.png" alt="CRUD应用截图" /></p>
+    <p>第二章讲解的是如何构建与测试。</p>
 
-<p>DataTables的分页器设计的很简约，一排简单的按钮就标示出了当前页、总页数，以及首页、末页、前一页、后一页的导航。当切换页码的时候，分页器按钮上的页码标识随之而变。</p>
+<p>MongoLab为数据量在0.5GB以下的数据库提供免费寄存，提供输出JSON格式的REST接口。</p>
 
-<p>观察发现，除去前一页、后一页按钮，如果总页数不大于7，则页码全部显示出来；否则，页码按钮固定7个，分别是首页和末页、当前页及当前页的左右页、中间页（用&hellip;标识）。当页码属于前4页或者末4页时，连续显示前5加末页或者后5加首页。</p>
+<p>构建系统准则：自动化所有事情；尽早报错，清晰报错；不同的工作流，不同的任务；构建脚本同样是代码。</p>
 
-<p>比如总页数29，分页器随着当前页不同而显示如下：</p>
+<p>AngularJS的测试代码是用Jasmine编写的。Karma runner用于执行JavaScript测试，能够分发源代码和测试代码到浏览器的运行实例上，触发测试的执行，收集输出结果。</p>
 
-<table>
-<thead>
-<tr>
-<th>当前页</th>
-<th align="center">页码</th>
-</tr>
-</thead>
+<p>文件命名的约定：所有JavaScript文件使用标准的.js扩展名；子模板文件的后缀是.tpl.html；测试文件和它测试的目标文件命名一致，后缀依靠测试类型不同而不同，单元测试以.spec.js结尾。</p>
 
-<tbody>
-<tr>
-<td>1</td>
-<td align="center">1、2、3、4、5、&hellip;、29</td>
-</tr>
+<p>每个文件中应仅定义一个AngularJS模块，这样可以维护相对较小、目标单一的文件和模块。</p>
 
-<tr>
-<td>2</td>
-<td align="center">1、2、3、4、5、&hellip;、29</td>
-</tr>
+<p>angular.module(&lsquo;myModule&rsquo;)可以取回已定义的模块实例，但应避免使用。</p>
 
-<tr>
-<td>3</td>
-<td align="center">1、2、3、4、5、&hellip;、29</td>
-</tr>
+<p>Karma runner的测试子集：</p>
 
-<tr>
-<td>4</td>
-<td align="center">1、2、3、4、5、&hellip;、29</td>
-</tr>
+<ol>
+<li>为测试或者测试套件加字母x前缀(xit、xdescribe)，将在下次运行时禁用此测试或者测试套件；</li>
+<li>为测试套件加字母d前缀(ddescribe)，将只运行次套件，而忽略其它测试套件；</li>
+<li>为测试加字母i前缀(iit)，将只运行此测试，而忽略其他测试和测试套件。</li>
+</ol>
 
-<tr>
-<td>5</td>
-<td align="center">1、&hellip;、4、5、6、&hellip;、29</td>
-</tr>
-
-<tr>
-<td>&hellip;</td>
-<td align="center">&hellip;</td>
-</tr>
-
-<tr>
-<td>25</td>
-<td align="center">1、&hellip;、24、25、26、&hellip;、29</td>
-</tr>
-
-<tr>
-<td>26</td>
-<td align="center">1、&hellip;、25、26、27、28、29</td>
-</tr>
-
-<tr>
-<td>27</td>
-<td align="center">1、&hellip;、25、26、27、28、29</td>
-</tr>
-
-<tr>
-<td>28</td>
-<td align="center">1、&hellip;、25、26、27、28、29</td>
-</tr>
-
-<tr>
-<td>29</td>
-<td align="center">1、&hellip;、25、26、27、28、29</td>
-</tr>
-</tbody>
-</table>
-
-<p>实现的Pagination如下：</p>
-
-<p>定义dom容器：</p>
-
-<pre><code>&lt;div class=&quot;pagination&quot;&gt;&lt;div class=&quot;pages&quot;&gt;&lt;/div&gt;&lt;/div&gt;
-</code></pre>
-
-<p>Pagination的定义：</p>
-
-<pre><code>function Pagination(ele,option){
-    this.ele = ele;//$(&quot;div.pagination&quot;)
-    this.option = option || {};
-    this.pages = ele.children(&quot;div.pages&quot;);
-    var pagObj = this;
-    pagObj.pages.on(&quot;click&quot;,&quot;a&quot;,function(){
-        if(!/disable/.test(this.className) &amp;&amp; this.innerHTML != &quot;...&quot;){
-            var gotoPage = 1;//需要跳转的页码
-            if(/prev/.test(this.className)){
-                gotoPage = pagObj.currPage-1;
-            }
-            else if(/next/.test(this.className)){
-                gotoPage = pagObj.currPage+1;
-            }
-            else{
-                gotoPage = parseInt(this.innerHTML);
-            }
-            pagObj.option.switchPage(gotoPage);//回调switchPage
-         }
-    })
-}
-</code></pre>
-
-<p>切换页码时，传入当前页码、总页数两个参数，更新Pagination:</p>
-
-<pre><code>Pagination.prototype.refresh = function(option){
-    this.currPage = option.currPage;//当前页
-    this.totalPage = option.totalPage;//总页数
-    var hasPrev = (option.currPage != 1), hasNext = (option.currPage != option.totalPage);
-    var htmlStr = &quot;&lt;a class='prev&quot;+(hasPrev ? &quot;&quot; : &quot; disable&quot;)+&quot;'&gt;&lt;&lt;&lt;/a&gt;&quot;;
-    var i;
-    if(option.totalPage&lt;=7){
-        for(i=1;i&lt;=option.totalPage;i++){
-            htmlStr += &quot;&lt;a&quot;+(i==this.currPage ? &quot; class='curr'&quot; : &quot;&quot;)+&quot;&gt;&quot;+i+&quot;&lt;/a&gt;&quot;
-        }
-    }
-    else{
-        var posArr = [1,,,,,,option.totalPage],//存放页码
-            leftVal = option.currPage-1,
-            rightVal = option.currPage+1;
-        if(leftVal&lt;3){
-            for(i=1;i&lt;=4;i++) posArr[i] = i+1;
-            posArr[5] = &quot;...&quot;;
-        }
-        else if(option.totalPage-rightVal&lt;3){
-            for(i=5;i&gt;=2;i--) posArr[i] = posArr[i+1]-1;
-            posArr[1]=&quot;...&quot;;
-        }
-        else{
-            posArr[1] = &quot;...&quot;;
-            posArr[2] = leftVal;
-            posArr[3] = option.currPage;
-            posArr[4] = rightVal;
-            posArr[5] = &quot;...&quot;;
-        }
-        for(i=0;i&lt;posArr.length;i++){
-            htmlStr +=&quot;&lt;a&quot;+(posArr[i]==option.currPage ? &quot; class='curr'&quot; : &quot;&quot;)+&quot;&gt;&quot;+posArr[i]+&quot;&lt;/a&gt;&quot;;
-        }
-    }
-    htmlStr +=&quot;&lt;a class='next&quot;+(hasNext ? &quot;&quot; : &quot; disable&quot;)+&quot;'&gt;&gt;&gt;&lt;/a&gt;&quot;;
-    this.pages.html(htmlStr);
-};
-</code></pre>
-
-<p>使用示例：</p>
-
-<pre><code>var pagination = new Pagination($(&quot;div.pagination&quot;),{
-        switchPage : function(page){
-            console.log(&quot;switch page：&quot;+page);
-        }
-});
-pagination.refresh({ currPage : 1 , totalPage : 10});//更新显示
-</code></pre>
+<p>angular.mock.dump(object)在控制台打印变量值；简写dump(object)。</p>
 
 	</div>
   <footer class="article-footer clearfix">
@@ -233,7 +99,7 @@ pagination.refresh({ currPage : 1 , totalPage : 10});//更新显示
 
 
   <div class="article-share" id="share">
-    <div data-url="https://linz1989.github.io/programming/algorithmOfPagination/" data-title="DataTables分页器的生成算法" data-tsina="" class="share clearfix">
+    <div data-url="https://linz1989.github.io/life/angular-learning-2/" data-title="AngularJS学习笔记(2)" data-tsina="" class="share clearfix">
     </div>
   </div>
 </footer>
@@ -249,8 +115,8 @@ pagination.refresh({ currPage : 1 , totalPage : 10});//更新显示
 
 
 var disqus_config = function () {
-this.page.url = "https://linz1989.github.io/programming/algorithmOfPagination/";
-this.page.identifier = "https://linz1989.github.io/programming/algorithmOfPagination/";
+this.page.url = "https://linz1989.github.io/life/angular-learning-2/";
+this.page.identifier = "https://linz1989.github.io/life/angular-learning-2/";
 };
 (function() { 
 var d = document, s = d.createElement('script');

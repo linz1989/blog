@@ -6,8 +6,40 @@
     <description>Recent content in Lives on linz blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 19 Jun 2016 20:08:02 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 20 Jun 2016 21:01:02 +0800</lastBuildDate>
     <atom:link href="https://linz1989.github.io/life/feed/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>AngularJS学习笔记(2)</title>
+      <link>https://linz1989.github.io/life/angular-learning-2/</link>
+      <pubDate>Mon, 20 Jun 2016 21:01:02 +0800</pubDate>
+      
+      <guid>https://linz1989.github.io/life/angular-learning-2/</guid>
+      <description>&lt;p&gt;第二章讲解的是如何构建与测试。&lt;/p&gt;
+
+&lt;p&gt;MongoLab为数据量在0.5GB以下的数据库提供免费寄存，提供输出JSON格式的REST接口。&lt;/p&gt;
+
+&lt;p&gt;构建系统准则：自动化所有事情；尽早报错，清晰报错；不同的工作流，不同的任务；构建脚本同样是代码。&lt;/p&gt;
+
+&lt;p&gt;AngularJS的测试代码是用Jasmine编写的。Karma runner用于执行JavaScript测试，能够分发源代码和测试代码到浏览器的运行实例上，触发测试的执行，收集输出结果。&lt;/p&gt;
+
+&lt;p&gt;文件命名的约定：所有JavaScript文件使用标准的.js扩展名；子模板文件的后缀是.tpl.html；测试文件和它测试的目标文件命名一致，后缀依靠测试类型不同而不同，单元测试以.spec.js结尾。&lt;/p&gt;
+
+&lt;p&gt;每个文件中应仅定义一个AngularJS模块，这样可以维护相对较小、目标单一的文件和模块。&lt;/p&gt;
+
+&lt;p&gt;angular.module(&amp;lsquo;myModule&amp;rsquo;)可以取回已定义的模块实例，但应避免使用。&lt;/p&gt;
+
+&lt;p&gt;Karma runner的测试子集：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;为测试或者测试套件加字母x前缀(xit、xdescribe)，将在下次运行时禁用此测试或者测试套件；&lt;/li&gt;
+&lt;li&gt;为测试套件加字母d前缀(ddescribe)，将只运行次套件，而忽略其它测试套件；&lt;/li&gt;
+&lt;li&gt;为测试加字母i前缀(iit)，将只运行此测试，而忽略其他测试和测试套件。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;angular.mock.dump(object)在控制台打印变量值；简写dump(object)。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>AngularJS学习笔记(1)</title>
@@ -47,6 +79,69 @@
 &lt;p&gt;&lt;strong&gt;constant&lt;/strong&gt;：常量。&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;provider&lt;/strong&gt;：通用的注册方法。返回包含$get属性的对象。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>关于赣州统计信息网前端页面的重构</title>
+      <link>https://linz1989.github.io/life/gztjjweb-about/</link>
+      <pubDate>Wed, 11 May 2016 21:05:12 +0800</pubDate>
+      
+      <guid>https://linz1989.github.io/life/gztjjweb-about/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://www.gztj.gov.cn/&#34;&gt;赣州统计信息网&lt;/a&gt;是赣州统计局的官方网站。2014年大学同学介绍做的私下项目，当时对于构建web还只是菜鸟级别(现在稍微有点长进)。&lt;/p&gt;
+
+&lt;p&gt;后台按要求使用Java实现，摒弃了jsp，前端是纯粹的html，数据交互使用ajax。&lt;/p&gt;
+
+&lt;p&gt;这个网站主要是发布新闻资讯，解答访问者的咨询，公布一些信息。文章发布是核心，大约占据了90%的网站内容。因此提供了一个管理者后台，方便对栏目文章的管理。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://linz1989.github.io/img/content/gztjjweb/1.png&#34; alt=&#34;管理者后台&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://linz1989.github.io/img/content/gztjjweb/2.png&#34; alt=&#34;管理者后台&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;样式使用流行的bootstrap，文本编辑器使用百度的&lt;a href=&#34;http://ueditor.baidu.com/website/&#34;&gt;UEditor&lt;/a&gt;，整体风格还可以。网站前台页面做的有些欠缺，这是当时的风格：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://linz1989.github.io/img/content/gztjjweb/3.png&#34; alt=&#34;网站页面&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;主要有以下弊端：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;首页有时白屏，对于每个类型的文章都有一次ajax请求，请求过多；&lt;/li&gt;
+&lt;li&gt;固定宽度布局，非响应式；&lt;/li&gt;
+&lt;li&gt;每个页面的菜单、底部友情链接代码是一样的；当有改动的时候，每个页面都要改，维护麻烦；&lt;/li&gt;
+&lt;li&gt;页面样式粗放；&lt;/li&gt;
+&lt;li&gt;js插件及css加载过多，未做优化；&lt;/li&gt;
+&lt;li&gt;缺少UV统计，虽然明知浏览量不会很多；&lt;/li&gt;
+&lt;li&gt;文章打印效果不行。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;针对上面的问题，重构了整个网站页面，主要有以下改进：&lt;/p&gt;
+
+&lt;p&gt;1.后台使用储存过程，一次性将首页需要的不同类型的文章信息加载出来。在良好的网络环境下，加载一百多篇文章(除去了内容)信息只花了286ms；而之前是分成十多次请求才完成；&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://linz1989.github.io/img/content/gztjjweb/4.png&#34; alt=&#34;网站页面&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;2.页面改成相应式布局，最大是1440px，最小是320px的布局；&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://linz1989.github.io/img/content/gztjjweb/5.png&#34; alt=&#34;网站页面&#34; style=&#34;max-width:360px&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;3.使用gulp自动化构建工具；样式使用sass全部重写；图标转成base64形式，进一步减少请求；
+&lt;img src=&#34;https://linz1989.github.io/img/content/gztjjweb/9.png&#34; alt=&#34;网站页面&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;4.js插件加载优化。首页的图表组件、高德地图API都是延迟加载；&lt;/p&gt;
+
+&lt;p&gt;5.赣州地图旧版是用flex/flash做出来的，现改用高德地图实现，更清晰的感觉；&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://linz1989.github.io/img/content/gztjjweb/6.png&#34; alt=&#34;网站页面&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;6.为网站增加了百度统计；&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://linz1989.github.io/img/content/gztjjweb/7.png&#34; alt=&#34;网站页面&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;7.改进了文章的打印效果；&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://linz1989.github.io/img/content/gztjjweb/8.png&#34; alt=&#34;网站页面&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;目前来说网站页面还有很多可以改进的地方，虽然赣州统计信息网只是个小网站。&lt;/p&gt;
 </description>
     </item>
     

@@ -1,5 +1,5 @@
 +++
-date = "2016-06-01T21:11:02+08:00"
+date = "2016-05-15T20:01:01+08:00"
 summary = "介绍DataTables分页器的生成算法"
 title = "DataTables分页器的生成算法"
 

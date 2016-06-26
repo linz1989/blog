@@ -278,7 +278,7 @@ article .article-content acronym,article .article-content abbr{border-bottom:1px
 article .article-content blockquote{border-left:.2em solid #ea6753;margin:.65em 0 .65em 4%;padding-left:1%;line-height:1.5;font-size:110%;}
 article .article-content blockquote footer{background:#fafafa;padding:0;margin:0;font-size:80%;line-height:1em}
 article .article-content blockquote cite{font-style:italic;padding-left:.5em}
-article .article-content ul,article .article-content ol{padding-left:1em;font-size:105%;}
+article .article-content ul,article .article-content ol{padding-left:1.5em;font-size:105%;}
 article .article-content ul li{list-style:disc;text-align:match-parent;margin:.5em 0}
 article .article-content ol li{list-style-type:decimal;margin:.5em 0;line-height: 2;}
 article .article-content dl dt{font-weight:blod}
