@@ -1,0 +1,29 @@
+@import "mixin.scss";
+@import 'reset.scss';
+
+.page{
+  width:86%;
+  margin:25px auto 20px;
+  background-color: #fafafa;
+  >h2.title{
+    height:88px;
+    line-height:88px;
+    border-bottom:1px solid #dbdbdb;
+    padding:0 20px;
+    font-size:32px;
+  }
+  >div.content{
+    padding:15px 20px;
+    p{
+      line-height: 45px;
+      font-size:18px;
+    }
+  }
+  >footer{
+    text-align: right;
+    height:60px;
+    line-height: 60px;
+    border-top:1px solid #dbdbdb;
+    padding: 0 20px;
+  }
+}

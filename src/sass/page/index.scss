@@ -1,0 +1,79 @@
+@import "../common/common.scss";
+
+header{
+  position: relative;
+  height: 188px;
+  background: url('../../assets/header-bg.jpg');
+  >div.wrap,>nav>ul{
+    width:86%;
+    margin:0 auto;
+  }
+  >div.wrap{
+    height:100%;
+    padding:32px 10px;
+  }
+  div.logo{
+    width:88px;
+    height:88px;
+    border-radius: 50%;
+    border:2px solid #ddd;
+    float:left;
+    @include img("../../assets/header.jpg",88px 88px)
+  }
+  div.title{
+    width:75%;
+    float:left;
+    margin-left:20px;
+    >h1{
+      height:50px;
+      line-height:50px;
+      font-size:48px;
+      color:#fff;
+    }
+    >h2{
+      height:38px;
+      line-height:38px;
+      font-style:italic;
+      font-size:18px;
+      color:#ddd;
+    }
+  }
+  >nav{
+    position: absolute;
+    bottom:0;
+    height:55px;
+    width:100%;
+    line-height:55px;
+    font-size:18px;
+    background: rgba(0,0,0,0.08);
+    ul{
+      li{
+        float: right;
+        a{
+          display: block;
+          padding:0 30px;
+          color:#ddd;
+          transition: color 0.25s, background 0.5s;
+          &:hover{
+            background-color: #036;
+            color:#fff;
+          }
+        }
+      }
+    }
+  }
+}
+
+footer{
+  text-align: center;
+  font-size:16px;
+  line-height:40px;
+  color:#817c7c;
+  >a{
+    color:#817c7c;
+    &:hover{
+      color:#f60;
+      text-decoration: underline;
+    }
+  }
+}
