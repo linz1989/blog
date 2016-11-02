@@ -13,10 +13,17 @@
     font-size:32px;
   }
   >div.content{
+    font-size:18px;
     padding:15px 20px;
     p{
       line-height: 45px;
-      font-size:18px;
+    }
+    ul{
+      li{
+        list-style: disc inside;
+        line-height: 45px;
+        padding-left:36px;
+      }
     }
   }
   >footer{

@@ -7,22 +7,20 @@ import App from './app.vue'
 
 Vue.use(VueRouter)
 
-var pageRouterList = { 'home': '', 'about': '' } // 页面列表
+var pageRouterList = ['home', 'about', 'learning-angular-1']  // 页面列表
 var pageRouterOption = []         // 构造router
-var optionItem
 
-function RouterOption (path, name) {
-  this.path = '/' + path
+function RouterOption (name) {
+  this.path = '/' + name
   this.name = name
   this.component = function (resolve) {
-    require(['./views/' + name + '.vue'], resolve)
+    require(['./views/' + name.replace(/-/g, '/') + '.vue'], resolve)
   }
 }
 
-for (var pageName in pageRouterList) {
-  optionItem = new RouterOption(pageName, pageName)
-  pageRouterOption.push(optionItem)
-}
+pageRouterList.forEach(function (pageName) {
+  pageRouterOption.push(new RouterOption(pageName))
+})
 
 // 其他链接
 pageRouterOption.push({
