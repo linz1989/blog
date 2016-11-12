@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-html, body, div, span, h1, h2, h3, h4, h5, h6, p, blockquote, a, cite, img, sub, sup, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+html, body, div, span, h1, h2, h3, h4, button,h5, h6, p, blockquote, a, pre,cite, img, sub, sup, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
     border: 0;
     font: inherit;
     line-height: inherit;
@@ -22,6 +22,7 @@ html,body{
 }
 button {
     outline: none;
+  color:inherit;
 }
 ol, ul {
     margin: 0;
@@ -48,6 +49,9 @@ input, textarea{
 }
 select, option{
     font-family: inherit;
+}
+pre{
+  margin:0
 }
 .no-select{
     -webkit-user-select: none;

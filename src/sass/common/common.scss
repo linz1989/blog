@@ -1,5 +1,6 @@
 @import "mixin.scss";
 @import 'reset.scss';
+@import 'highlight.scss';
 
 .page{
   width:86%;
@@ -17,12 +18,69 @@
     padding:15px 20px;
     p{
       line-height: 45px;
+      text-indent: 36px;
+      em{
+        font-weight: bold;
+      }
+      strong{
+        color:#f60;
+        font-weight: normal;
+      }
+    }
+    p.dot{
+      color:#f60;
     }
     ul{
       li{
         list-style: disc inside;
         line-height: 45px;
         padding-left:36px;
+      }
+    }
+    button{
+      padding:10px 10px;
+      background-color: #f0f0f0;
+      text-align: center;
+      border-radius: 6px;
+      cursor: pointer;
+      margin:10px 0;
+      &:hover{
+        background-color: #e0e0e0;
+        color:#6c6c6c;
+      }
+    }
+    h3.sub-title{
+      font-weight: bold;
+      color:#f60;
+      font-size:20px;
+      line-height: 2;
+      margin-top:15px;
+    }
+  }
+  >ul.article-list{
+    padding:0;
+    background-color: #f0f0f0;
+    >li{
+      padding:20px;
+      margin-bottom:10px;
+      background-color: #fff;
+      cursor: pointer;
+      >h3{
+        height:50px;
+        line-height:50px;
+        font-size:25px;
+      }
+      >div:nth-of-type(1){
+        line-height: 45px;
+        font-size:18px;
+        border-bottom:1px dotted #ccc;
+      }
+      >div:nth-of-type(2){
+        text-align: right;
+        line-height: 42px;
+      }
+      &:hover{
+        box-shadow: #ddd 2px 3px 5px;
       }
     }
   }

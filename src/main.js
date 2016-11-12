@@ -7,11 +7,11 @@ import App from './app.vue'
 
 Vue.use(VueRouter)
 
-var pageRouterList = ['home', 'about', 'learning-angular-1']  // 页面列表
+var pageRouterList = ['css', 'about', 'learning-css-secrects-1', 'learning-css-secrects-2']  // 页面列表
 var pageRouterOption = []         // 构造router
 
 function RouterOption (name) {
-  this.path = '/' + name
+  this.path = '/' + name.replace(/-/g, '/')
   this.name = name
   this.component = function (resolve) {
     require(['./views/' + name.replace(/-/g, '/') + '.vue'], resolve)
@@ -24,7 +24,7 @@ pageRouterList.forEach(function (pageName) {
 
 // 其他链接
 pageRouterOption.push({
-  path: '*', redirect: { name: 'home' }
+  path: '*', redirect: { name: 'css' }
 })
 
 // 路由配置
