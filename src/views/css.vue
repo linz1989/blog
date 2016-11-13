@@ -8,8 +8,8 @@
     </router-link>
     <router-link tag="li" :to="{ name : 'learning-css-secrects-2' }">
       <h3>《CSS 揭秘》笔记之二：背景与边框</h3>
-      <div>记录一些基本概念及基础知识点。第一章《Angular之禅》的笔记。</div>
-      <div>【读书笔记】2016/11/01</div>
+      <div>此书第二章的内容。分别描述了半透明边框、多重边框、背景定位、边框内圆角以及多种多样的条纹背景效果实现技巧。</div>
+      <div>【读书笔记】2016/11/03</div>
     </router-link>
   </ul>
 </div>

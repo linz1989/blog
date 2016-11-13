@@ -50,6 +50,71 @@
     box-shadow: 0 0 0 0.4em #655;
     outline:0.6em solid #655;
   }
+  div.linear-1>div{
+    background: linear-gradient(#fb3 50%, #58a 50%);
+    background-size: 100% 30px;
+  }
+  div.linear-2>div{
+    background: linear-gradient(to right ,#fb3 50%, #58a 0);
+    background-size: 30px 100%;
+  }
+  div.linear-3>div{
+    background: linear-gradient(45deg, #fb3 25%, #58a 25%, #58a 50%, #fb3 50%, #fb3 75%, #58a 75%);
+    background-size: 42.426px 42.426px;
+  }
+  div.linear-4>div{
+    background: repeating-linear-gradient(45deg,#fb3, #fb3 15px, #58a 15px, #58a 30px);
+  }
+  div.linear-5>div{
+    background: #58a;
+    background-image: repeating-linear-gradient(30deg, rgba(255,255,255,0.1), rgba(255,255,255,0.1) 15px, transparent 15px, transparent 30px);
+  }
+  div.linear-6>div{
+    background: white;
+    background-image: linear-gradient(90deg, rgba(200,0,0,0.5) 50%, transparent 0), linear-gradient(rgba(200,0,0,0.5) 50%, transparent 0);
+    background-size: 30px 30px;
+  }
+  div.linear-7>div{
+    background: #58a;
+    background-image: linear-gradient(#ccc 1px, transparent 0), linear-gradient(90deg, #ccc 1px, transparent 0);
+    background-size: 20px 20px;
+  }
+  div.linear-8>div{
+    background: #58a;
+    background-image: linear-gradient(white 2px, transparent 0), linear-gradient(90deg, white 2px, transparent 0), linear-gradient(hsla(0, 0%, 100%, 0.3) 1px, transparent 0), linear-gradient(90deg, hsla(0, 0%, 100%, 0.3) 1px, transparent 0);
+    background-size: 75px 75px, 75px 75px, 15px 15px, 15px 15px;
+  }
+  div.linear-9>div{
+    background: #655;
+    background-image: radial-gradient(tan 20%, transparent 0);
+    background-size: 30px 30px;
+  }
+  div.linear-10>div{
+    background: #655;
+    background-image: radial-gradient(tan 20%, transparent 0), radial-gradient(tan 20%, transparent 0);
+    background-size: 30px 30px;
+    background-position: 0 0, 15px 15px;
+  }
+  div.linear-11>div{
+    padding:1em;
+    border:1em solid transparent;
+    background: linear-gradient(white,white), repeating-linear-gradient(-45deg, red 0, red 12.5%, transparent 12.5%, transparent 25%, #58a 25%, #58a 37.5%, transparent 37.5%, transparent 50%);
+    background-size: 3em 3em;
+    background-clip: padding-box, border-box;
+  }
+  @keyframes ants {
+    to {
+      background-position: 100%;
+    }
+  }
+  div.marching-ants>div{
+    padding: 1em;
+    border:1px solid transparent;
+    background: linear-gradient(white,white), repeating-linear-gradient(-45deg, black 0, black 25%, white 0, white 50%);
+    background-clip: padding-box, border-box;
+    background-size: 0.6em 0.6em;
+    animation: ants 12s linear infinite;
+  }
 </style>
 <template>
   <div class="page">
@@ -114,6 +179,116 @@
         outline:0.6em solid #655;
       </code></pre>
       <h3 class="title">条纹背景</h3>
+      <p><strong>对于渐变，当多个色标具有相同的位置时，它们会产生一个无限小的过渡区域。从效果上看，颜色在那个位置突然变化了。</strong></p>
+      <p>条纹背景示例：</p>
+      <div class="exp linear-1"><div></div></div>
+      <pre><code>
+        background: linear-gradient(#fb3 50%, #58a 50%);
+        background-size: 100% 30px;
+      </code></pre>
+      <p><strong>如果某个色标的位置比它之前的位置值小，那么它会被解析为前面所有色标位置的最大值。</strong></p>
+      <p>上例可以写成：background: linear-gradient(#fb3 50%, #58a 0);</p>
+      <p><strong>垂直条纹</strong>的效果需要加额外的参数来指定渐变方向：to right</p>
+      <div class="exp linear-2"><div></div></div>
+      <pre><code>
+        background: linear-gradient(to right ,#fb3 50%, #58a 0);
+        background-size: 30px 100%;
+      </code></pre>
+      <p><strong><b>45度斜向条纹：</b></strong></p>
+      <p>方法一：使用linear-gradient，background-size设置为条纹宽度的2*1.414倍</p>
+      <div class="exp linear-3"><div></div></div>
+      <pre><code>
+        background: linear-gradient(45deg, #fb3 25%, #58a 25%, #58a 50%, #fb3 50%, #fb3 75%, #58a 75%);
+        background-size: 42.426px 42.426px;
+      </code></pre>
+      <p>方法二：使用repeating-linear-gradient</p>
+      <div class="exp linear-4"><div></div></div>
+      <pre><code>
+        background: repeating-linear-gradient(45deg,#fb3, #fb3 15px, #58a 15px, #58a 30px);
+      </code></pre>
+      <p><strong><b>同色系条纹：</b></strong></p>
+      <p>将最深的颜色指定为背景色，把半透明的白色条纹叠加到背景色之上</p>
+      <div class="exp linear-5"><div></div></div>
+      <pre><code>
+        background: #58a;
+        background-image: repeating-linear-gradient(30deg,
+                                        hsla(0, 0%, 100%, .1),
+                                        hsla(0, 0%, 100%, .1) 15px,
+                                        transparent 15px, transparent 30px);
+      </code></pre>
+      <p><strong>使用CSS渐变来产生任何种类的几何图案都是可能的。</strong>原理是将多个渐变图案组合起来。</p>
+      <p><strong>桌布方格图案：</strong></p>
+      <div class="exp linear-6"><div></div></div>
+      <pre><code>
+        background: white;
+        background-image: linear-gradient(90deg, rgba(200,0,0,0.5) 50%, transparent 0),
+                          linear-gradient(rgba(200,0,0,0.5) 50%, transparent 0);
+        background-size: 30px 30px;
+      </code></pre>
+      <p><strong>网格图案：</strong></p>
+      <div class="exp linear-7"><div></div></div>
+      <pre><code>
+        background: #58a;
+        background-image: linear-gradient(#ccc 1px, transparent 0),
+                          linear-gradient(90deg, #ccc 1px, transparent 0);
+        background-size: 20px 20px;
+      </code></pre>
+      <p><strong>叠加多重渐变的蓝图网格：</strong>使用background-size调整间距。</p>
+      <div class="exp linear-8"><div></div></div>
+      <pre><code>
+        background: #58a;
+        background-image: linear-gradient(white 2px, transparent 0),
+                          linear-gradient(90deg, white 2px, transparent 0),
+                          linear-gradient(hsla(0, 0%, 100%, 0.3) 1px, transparent 0),
+                          linear-gradient(90deg, hsla(0, 0%, 100%, 0.3) 1px, transparent 0);
+        background-size: 75px 75px, 75px 75px, 15px 15px, 15px 15px;
+      </code></pre>
+      <p><strong>波点图案：</strong>使用径向渐变。</p>
+      <div class="exp linear-9"><div></div></div>
+      <pre><code>
+        background: #655;
+        background-image: radial-gradient(tan 20%, transparent 0);
+        background-size: 30px 30px;
+      </code></pre>
+      <p><strong>复杂点的波点图案：</strong>使用background-position错开位置。</p>
+      <div class="exp linear-10"><div></div></div>
+      <pre><code>
+        background: #655;
+        background-image: radial-gradient(tan 20%, transparent 0),
+                          radial-gradient(tan 20%, transparent 0);
+        background-size: 30px 30px;
+        background-position: 0 0, 15px 15px;
+      </code></pre>
+      <p><strong>信封样式边框：</strong>设置两层背景，内层纯白色（使用渐变实现），斜纹背景溢出到边框区域。边框设置为透明。</p>
+      <div class="exp linear-11"><div></div></div>
+      <pre><code>
+        padding:1em;
+        border:1em solid transparent;
+        background: linear-gradient(white,white),
+                    repeating-linear-gradient(-45deg, red 0, red 12.5%, transparent 12.5%,
+                              transparent 25%, #58a 25%, #58a 37.5%, transparent 37.5%, transparent 50%);
+        background-size: 3em 3em;
+        background-clip: padding-box, border-box;
+      </code></pre>
+      <p><strong><b>蚂蚁行军边框：</b></strong>动起来的关键是使用animation设置background-position。</p>
+      <div class="exp marching-ants"><div></div></div>
+      <pre><code>
+        @keyframes ants {
+          to {
+            background-position: 100%;
+          }
+        }
+
+        div.marching-ants{
+          padding: 1em;
+          border:1px solid transparent;
+          background: linear-gradient(white,white),
+                      repeating-linear-gradient(-45deg, black 0, black 25%, white 0, white 50%);
+          background-clip: padding-box, border-box;
+          background-size: 0.6em 0.6em;
+          animation: ants 12s linear infinite;
+        }
+      </code></pre>
     </div>
     <footer>2016年11月03日</footer>
   </div>
@@ -129,8 +304,6 @@
           }
         }
       })
-    },
-    methods: {
     }
   }
 </script>
