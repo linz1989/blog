@@ -149,6 +149,16 @@ pre {
       font-size: 20px;
       line-height: 2;
       margin-top: 15px; }
+    .page > div.content h3.title {
+      background-color: #cfc;
+      color: #f96;
+      font-size: 26px;
+      border-radius: 6px;
+      line-height: 2.4;
+      padding-left: 18px;
+      margin-top: 20px; }
+      .page > div.content h3.title:first-child {
+        margin-top: 0; }
   .page > ul.article-list {
     padding: 0;
     background-color: #f0f0f0; }
